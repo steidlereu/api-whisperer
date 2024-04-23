@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Custom primary and secondary colors
+$custom-primary: #ed0000; // Your custom primary color
+$custom-secondary: #1c2429; // Your custom secondary color
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$primary:       #ed0000;
+$secondary:     #1c2429;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+
+//futhermore it's necesary override the $theme-colors
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
