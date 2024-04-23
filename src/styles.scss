@@ -1,33 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+// Import Bootstrap styles
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
-// Custom primary and secondary colors
-$custom-primary: #ed0000; // Your custom primary color
-$custom-secondary: #1c2429; // Your custom secondary color
+// Define custom theme colors for light mode
+$light-primary: #007bff; // Custom primary color for light mode
+$light-secondary: #6c757d; // Custom secondary color for light mode
+// Define other custom colors for light mode as needed
 
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
+// Define custom theme colors for dark mode
+$dark-primary: #6c757d; // Custom primary color for dark mode
+$dark-secondary: #007bff; // Custom secondary color for dark mode
+// Define other custom colors for dark mode as needed
 
-$primary:       #ed0000;
-$secondary:     #1c2429;
-$success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
-$danger:        $red;
-$light:         $gray-100;
-$dark:          $gray-900;
-
-//futhermore it's necesary override the $theme-colors
-
+// Override Bootstrap variables for light mode
 $theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
+  "primary": $light-primary,
+  "secondary": $light-secondary,
+  // Override other theme colors for light mode
 );
 
+// Override Bootstrap variables for dark mode
+$theme-dark-colors: (
+  "primary": $dark-primary,
+  "secondary": $dark-secondary,
+  // Override other theme colors for dark mode
+);
 
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+// Import Bootstrap utilities
+@import "../node_modules/bootstrap/scss/utilities";
