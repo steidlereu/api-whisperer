@@ -1,29 +1,49 @@
 // Import Bootstrap styles
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+// Custom primary and secondary colors
+$custom-primary: #ed0000; // Your custom primary color
+$custom-secondary: #1c2429; // Your custom secondary color
 
-// Define custom theme colors for light mode
-$light-primary: #007bff; // Custom primary color for light mode
-$light-secondary: #6c757d; // Custom secondary color for light mode
-// Define other custom colors for light mode as needed
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
 
-// Define custom theme colors for dark mode
-$dark-primary: #6c757d; // Custom primary color for dark mode
-$dark-secondary: #007bff; // Custom secondary color for dark mode
-// Define other custom colors for dark mode as needed
+$primary-light:   $custom-primary;
+$secondary-light: $custom-secondary;
 
-// Override Bootstrap variables for light mode
+$primary-dark:   $custom-primary;
+$secondary-dark: $custom-secondary;
+
+$primary:       $custom-primary;
+$secondary:     $custom-secondary;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $custom-secondary;
+
+$body-bg-dark: $custom-secondary;
+
 $theme-colors: (
-  "primary": $light-primary,
-  "secondary": $light-secondary,
-  // Override other theme colors for light mode
+  "primary":    $primary-light,
+  "secondary":  $secondary-light,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
 );
 
-// Override Bootstrap variables for dark mode
 $theme-dark-colors: (
-  "primary": $dark-primary,
-  "secondary": $dark-secondary,
-  // Override other theme colors for dark mode
+  "primary":    $primary-dark,
+  "secondary":  $secondary-dark,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
 );
 
-// Import Bootstrap utilities
-@import "../node_modules/bootstrap/scss/utilities";
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
