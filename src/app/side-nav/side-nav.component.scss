@@ -1,0 +1,25 @@
+@import "../../colors.scss";
+
+.sidenav {
+
+    padding: 0;
+
+    &.navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+    }
+
+    .container-fluid {
+        padding: 0 !important;
+    }
+
+    .nav-link {
+        font-size: 20px;
+        padding: 15px;
+        color: $custom-primary;
+
+        &.active {
+            background: $custom-primary;
+            color: white;
+        }
+    }
+}

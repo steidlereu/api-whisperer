@@ -1,7 +1,7 @@
 // Import Bootstrap styles
 // Custom primary and secondary colors
-$custom-primary: #ed0000; // Your custom primary color
-$custom-secondary: #1c2429; // Your custom secondary color
+
+@import "../src/colors.scss";
 
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
