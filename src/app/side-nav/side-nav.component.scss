@@ -15,11 +15,22 @@
     .nav-link {
         font-size: 20px;
         padding: 15px;
-        color: $custom-primary;
+        //color: $custom-primary;
+
+        &:hover {
+            color: $custom-primary;
+            border-bottom: 2px solid $custom-primary !important;
+        }
 
         &.active {
             background: $custom-primary;
+            border-bottom: 2px solid $custom-primary !important;
             color: white;
+
+            &:hover {
+                border-bottom: 2px solid #bc0000 !important;
+                background: #bc0000;
+            }
         }
     }
 }
