@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
       registrationStrategy: 'registerWhenStable:30000'
     }),
     provideAnimations(),
-    importProvidersFrom(BsDropdownModule.forRoot())
+    importProvidersFrom(BsDropdownModule.forRoot()),
   ]
 };
 

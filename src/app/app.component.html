@@ -1,12 +1,19 @@
 <app-header></app-header>
 
-<div class="container-fluid min-vh-100">
+<div class="container-fluid full-height" style="margin-top: 61px;">
   <div class="row">
     <div class="col-md-auto">
       <app-side-nav></app-side-nav>
     </div>
     <div class="col">
-      <router-outlet></router-outlet>
+      <div class="row full-height">
+        <div class="col-md-auto sizable">
+          <p>hello</p>
+        </div>
+        <div class="col border-start">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
     </div>
   </div>
 </div>

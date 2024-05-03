@@ -22,7 +22,6 @@ $light:         $gray-100;
 $dark:          $custom-secondary;
 
 $body-bg-dark: $custom-secondary;
-
 $border-width: 2px;
 
 $theme-colors: (
@@ -49,3 +48,20 @@ $theme-dark-colors: (
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+[data-bs-theme=light] {
+  --bs-body-color: $custom-secondary;
+}
+
+[data-bs-theme=dark] {
+  --bs-body-color: white;
+}
+
+.full-height {
+  height: calc(100vh - 61px);
+}
+
+.sizable {
+  resize: horizontal;
+  overflow: auto;
+}
