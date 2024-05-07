@@ -1,0 +1,27 @@
+
+.margin-row {
+    margin-top: 1rem;
+}
+
+.collection-item {
+
+    .item-name {
+
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        i {
+            padding-right: 10px;
+        }
+
+    }
+
+    .item-options {
+        i {
+            padding-right: 5px;
+        }
+    }
+
+}
