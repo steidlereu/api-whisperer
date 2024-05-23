@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import * as monaco from 'monaco-editor';
 import { ThemeService } from '../../services/theme.service';
+import { OpenapiWorkspaceService } from '../../services/openapi-workspace.service';
 
 @Component({
   selector: 'app-openapi-yaml-editor',
@@ -14,11 +15,14 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
 
   editor!: monaco.editor.IStandaloneCodeEditor;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private workspaceService: OpenapiWorkspaceService
+  ) {}
 
   ngAfterViewInit() {
     this.editor = monaco.editor.create(this.editorContainer.nativeElement, {
-      value: 'hello world',
+      value: '',
       language: 'yaml',
       theme: 'vs-light',
       automaticLayout: true
@@ -30,6 +34,10 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
       } else {
         this.editor.updateOptions({ theme: 'vs-dark'});
       }
+    });
+
+    this.workspaceService.activeFile.subscribe((content) => {
+      this.editor.setValue('blaa');
     });
 
   }

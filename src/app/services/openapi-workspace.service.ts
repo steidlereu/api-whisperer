@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OpenapiWorkspaceService {
 
-  constructor() { }
+  activeFile: Subject<string> = new Subject<string>()
+
+  constructor() { 
+    this.activeFile.next('Hello World Spec');
+  }
 }
