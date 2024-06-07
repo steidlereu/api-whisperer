@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@ang
 import * as monaco from 'monaco-editor';
 import { ThemeService } from '../../services/theme.service';
 import { OpenapiWorkspaceService } from '../../services/openapi-workspace.service';
-import YAML from 'yaml';
+import { ConditionalExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-openapi-yaml-editor',
@@ -39,7 +39,15 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
     });
 
     this.workspaceService.activeFile.subscribe(async (content) => {
-      if (content.length > 0) {
+
+      const contentString = content as string;
+      console.log('uiii');
+      console.log(content.length);
+      console.log(contentString.length);
+
+      if (contentString.length > 0) {
+        console.log('uiii');
+      console.log(content);
         this.editor.setValue(content);
       }
     });
@@ -48,6 +56,8 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
       console.log(this.editor.getValue());
       console.log(event);
     });
+
+    this.workspaceService.init();
 
   }
 
