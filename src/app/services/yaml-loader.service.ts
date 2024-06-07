@@ -1,0 +1,17 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
+import * as yaml from 'js-yaml';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class YamlLoaderService {
+
+  constructor(private http: HttpClient) { }
+
+  loadYaml(filePath: string): Promise<any> {
+    return lastValueFrom(this.http.get(filePath, { responseType: 'text' }))
+      .then(yamlString => yaml.load(yamlString));
+  }
+}
