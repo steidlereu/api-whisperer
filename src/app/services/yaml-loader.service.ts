@@ -10,6 +10,10 @@ export class YamlLoaderService {
 
   constructor(private http: HttpClient) { }
 
+  loadRaw(filePath: string): Promise<any> {
+    return lastValueFrom(this.http.get(filePath, { responseType: 'text' }));
+  }
+
   loadYaml(filePath: string): Promise<any> {
     return lastValueFrom(this.http.get(filePath, { responseType: 'text' }))
       .then(yamlString => yaml.load(yamlString));
