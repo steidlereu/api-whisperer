@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import * as monaco from 'monaco-editor';
 import { ThemeService } from '../../services/theme.service';
 import { OpenapiWorkspaceService } from '../../services/openapi-workspace.service';
@@ -14,7 +14,7 @@ import { YamlLoaderService } from '../../services/yaml-loader.service';
 })
 
 export class YamlEditorComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('editorContainer') editorContainer!: ElementRef;
+  @ViewChild('editorContainer', { static: false }) editorContainer!: ElementRef;
 
   editor!: monaco.editor.IStandaloneCodeEditor;
 
@@ -29,7 +29,15 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
       value: '',
       language: 'yaml',
       theme: 'vs-light',
-      automaticLayout: true
+      automaticLayout: true,
+      readOnly: true,
+      minimap: { enabled: false },
+      stickyScroll: { enabled: false },
+      scrollbar: {
+        vertical: 'hidden',
+        horizontal: 'hidden',
+        handleMouseWheel: false
+      }
     });
 
     this.themeService.themeChange.subscribe((theme) => {
@@ -52,6 +60,10 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
     */
 
     this.workspaceService.init(this.editor);
+
+    this.editor.onDidChangeModelContent(() => {
+      this.resizeEditor();
+    });
   }
 
   ngOnDestroy() {
@@ -59,5 +71,31 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
   }
 
   // You can add methods for loading/saving YAML content here
+
+  resizeEditor(): void {
+    setTimeout(() => {
+      const container = this.editorContainer?.nativeElement;
+      if (!container) {
+        console.error("Editor-Container nicht gefunden!");
+        return;
+      }
+
+      // Berechne die benötigte Höhe anhand der Zeilen im Editor
+      const lineCount = this.editor?.getModel()?.getLineCount() || 10;
+      const lineHeight = this.editor?.getOption(monaco.editor.EditorOption.lineHeight) || 20;
+      const padding = 20; // Zusätzlicher Puffer
+      const contentHeight = lineCount * lineHeight + padding;
+
+      // Setze die neue Höhe
+      container.style.height = `${contentHeight}px`;
+
+      console.log(`Editor resizes to: ${container.clientWidth}x${contentHeight}`);
+
+      this.editor.layout({
+        width: container.clientWidth,
+        height: contentHeight
+      });
+    }, 200);
+  }
 }
 

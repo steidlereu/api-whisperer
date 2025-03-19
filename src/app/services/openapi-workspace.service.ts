@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {ElementRef, Injectable} from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import * as yaml from 'js-yaml';
 import * as monaco from 'monaco-editor';

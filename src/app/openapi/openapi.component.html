@@ -1,15 +1,30 @@
-<div class="row full-height">
+<div class="row">
     <div class="col-md-auto sizable">
         <app-openapi-workspace></app-openapi-workspace>
     </div>
     <div class="col border-start">
-        <div class="row full-height">
-            <div class="col-md-auto sizable border-end" style="padding: 0; width: 50%;">
+      <div class="container mt-5">
+        <div class="row">
+          <tabset [justified]="true">
+            <tab heading="Swagger UI">
+              <div *ngIf="displayEditor" class="col">
                 <app-openapi-yaml-editor></app-openapi-yaml-editor>
-            </div>
-            <div class="col">
+              </div>
+              <div *ngIf="!displayEditor" class="col">
                 <app-openapi-swagger-ui></app-openapi-swagger-ui>
-            </div>
+              </div>
+            </tab>
+            <tab heading="OpenAPI" (selectTab)="onSelect($event)">
+              <app-openapi-yaml-editor></app-openapi-yaml-editor>
+            </tab>
+            <tab heading="Description">Short Labeled Justified content</tab>
+          </tabset>
         </div>
+        <div class="row">
+          <div class="openapi-toggle">
+            <button (click)="toggle()" class="btn btn-outline-primary"><i class="fa-solid fa-code"></i></button>
+          </div>
+        </div>
+      </div>
     </div>
 </div>
