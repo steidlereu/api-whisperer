@@ -7,23 +7,17 @@
         <div class="row">
           <tabset [justified]="true">
             <tab heading="Swagger UI">
-              <div *ngIf="displayEditor" class="col">
-                <app-openapi-yaml-editor></app-openapi-yaml-editor>
-              </div>
-              <div *ngIf="!displayEditor" class="col">
+              <div class="col border-start border-end">
                 <app-openapi-swagger-ui></app-openapi-swagger-ui>
               </div>
             </tab>
             <tab heading="OpenAPI" (selectTab)="onSelect($event)">
-              <app-openapi-yaml-editor></app-openapi-yaml-editor>
+              <div class="col border-start border-end">
+                <app-openapi-yaml-editor></app-openapi-yaml-editor>
+              </div>
             </tab>
             <tab heading="Description">Short Labeled Justified content</tab>
           </tabset>
-        </div>
-        <div class="row">
-          <div class="openapi-toggle">
-            <button (click)="toggle()" class="btn btn-outline-primary"><i class="fa-solid fa-code"></i></button>
-          </div>
         </div>
       </div>
     </div>

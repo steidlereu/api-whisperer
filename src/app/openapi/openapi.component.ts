@@ -16,12 +16,6 @@ export class OpenapiComponent {
 
   @ViewChild(YamlEditorComponent) yamlEditor!: YamlEditorComponent;
 
-  displayEditor = false;
-
-  toggle() {
-    this.displayEditor = !this.displayEditor;
-  }
-
   onSelect(data: TabDirective): void {
     setTimeout(() => {
       this.yamlEditor?.resizeEditor();
