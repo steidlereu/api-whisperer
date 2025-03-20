@@ -21,6 +21,8 @@ $danger:        $red;
 $light:         $gray-100;
 $dark:          $custom-secondary;
 
+$link-color: $primary;
+$link-hover-color: darken($primary, 10%);
 $body-bg-dark: $custom-secondary;
 $border-width: 2px;
 
