@@ -1,0 +1,22 @@
+<div class="collection">
+  <div class="header row">
+    <div class="col-auto text-start collection-name">
+      <p tooltip="Hello World" placement="top" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+        <i *ngIf="isCollapsed" class="fa-solid fa-folder-closed"></i><i *ngIf="!isCollapsed" class="fa-regular fa-folder-open"></i> {{product}}
+      </p>
+    </div>
+    <!--
+    <div class="col text-end collection-options">
+      <p><i class="fa-solid fa-ellipsis-vertical"></i></p>
+    </div>-->
+  </div>
+  <div class="elements row" id="collapseBasic" [collapse]="isCollapsed">
+    <div class="col-auto text-start collection-name">
+      <p tooltip="Hello World" placement="top"><i class="fa-solid fa-arrow-right"></i> Hello World</p>
+    </div>
+    <!--
+    <div class="col text-end collection-options">
+      <p><i class="fa-solid fa-ellipsis-vertical"></i></p>
+    </div>-->
+  </div>
+</div>

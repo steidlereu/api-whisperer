@@ -6,6 +6,7 @@ import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HttpClientModule } from '@angular/common/http';
+import {MarkdownModule} from "ngx-markdown";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +17,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     importProvidersFrom(
       BsDropdownModule.forRoot(),
-      HttpClientModule
+      HttpClientModule,
+      MarkdownModule.forRoot()
     ),
   ]
 };

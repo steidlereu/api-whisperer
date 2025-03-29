@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "name": "CoffeeShop",
+      "description": "pathToDescription",
+      "domains": [
+        {
+          "name": "Payment",
+          "description": "pathToDescription",
+          "services": [
+            {
+              "name": "PaymentMethods",
+              "content": [
+                {
+                  "version": "",
+                  "displayVersion": "",
+                  "preview": false,
+                  "openAPI": "...",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FruitStore"
+    }
+  ]
+}
