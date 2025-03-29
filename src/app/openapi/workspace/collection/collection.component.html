@@ -1,8 +1,8 @@
 <div class="collection">
   <div class="header row">
     <div class="col-auto text-start collection-name">
-      <p tooltip="Hello World" placement="top" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
-        <i *ngIf="isCollapsed" class="fa-solid fa-folder-closed"></i><i *ngIf="!isCollapsed" class="fa-regular fa-folder-open"></i> {{product}}
+      <p tooltip="Hello World" placement="top" (click)="collapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+        <i *ngIf="isCollapsed" class="fa-solid fa-folder-closed"></i><i *ngIf="!isCollapsed" class="fa-regular fa-folder-open"></i> {{product.name}}
       </p>
     </div>
     <!--
@@ -11,9 +11,11 @@
     </div>-->
   </div>
   <div class="elements row" id="collapseBasic" [collapse]="isCollapsed">
-    <div class="col-auto text-start collection-name">
-      <p tooltip="Hello World" placement="top"><i class="fa-solid fa-arrow-right"></i> Hello World</p>
-    </div>
+    @for (domain of product.domains ; track domain.name) {
+      <div class="col-auto text-start collection-name">
+        <p tooltip="Hello World" placement="top"><i class="fa-solid fa-arrow-right"></i> {{ domain.name }}</p>
+      </div>
+    }
     <!--
     <div class="col text-end collection-options">
       <p><i class="fa-solid fa-ellipsis-vertical"></i></p>

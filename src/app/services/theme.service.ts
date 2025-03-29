@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import {SettingsService} from "./settings.service";
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,20 @@ import { Subject } from 'rxjs';
 export class ThemeService {
 
   currentTheme: string = 'light'; // Default theme is light
-
   themeChange: Subject<string> = new Subject<string>();
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) {
+    this.setTheme(this.settingsService.loadSettings().currentTheme);
+  }
 
   toggleTheme() {
-    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+    const theme = this.currentTheme === 'light' ? 'dark' : 'light';
+    this.settingsService.updateSetting('currentTheme', theme);
+    this.setTheme(theme);
+  }
+
+  setTheme(theme: string) {
+    this.currentTheme = theme;
     this.themeChange.next(this.currentTheme);
     document.body.setAttribute('data-bs-theme', this.currentTheme);
   }

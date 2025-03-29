@@ -1,9 +1,11 @@
 import {AfterViewInit, Component} from '@angular/core';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import {ConfigService} from "../../services/config.service";
-import {Config} from "../../models/Config";
 import {CollapseModule} from "ngx-bootstrap/collapse";
 import {CollectionComponent} from "./collection/collection.component";
+import {Product} from "../../models/Product";
+import {Explorer} from "../../models/Explorer";
+import {SettingsService} from "../../services/settings.service";
 
 @Component({
   selector: 'app-openapi-workspace',
@@ -14,16 +16,25 @@ import {CollectionComponent} from "./collection/collection.component";
 })
 export class WorkspaceComponent implements AfterViewInit {
 
-  config: Config | undefined;
-  isCollapsed = false;
+  explorer: Explorer;
+  products: Product[] | [] | undefined;
 
-  constructor(private configService: ConfigService) {
+  constructor(
+    private configService: ConfigService,
+    private settingsService: SettingsService
+  ) {
+    this.explorer = this.settingsService.loadSettings().explorer;
   }
 
   ngAfterViewInit(): void {
     this.configService.getConfig().subscribe((config) => {
-      this.config = config;
+      this.products = config.products;
     });
+  }
+
+  receiveValue(value: boolean) {
+    console.log("Collection state:");
+    console.log(value);
   }
 
 }

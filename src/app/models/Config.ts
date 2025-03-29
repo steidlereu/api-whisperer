@@ -1,4 +1,5 @@
+import {Product} from "./Product";
 
 export interface Config {
-  products: Array<any>;
+  products: Product[];
 }

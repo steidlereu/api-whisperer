@@ -5,7 +5,25 @@
       "description": "pathToDescription",
       "domains": [
         {
-          "name": "Payment",
+          "name": "Order & Purchase",
+          "description": "pathToDescription",
+          "services": [
+            {
+              "name": "PaymentMethods",
+              "content": [
+                {
+                  "version": "",
+                  "displayVersion": "",
+                  "preview": false,
+                  "openAPI": "...",
+                  "description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Loyalty Program",
           "description": "pathToDescription",
           "services": [
             {
