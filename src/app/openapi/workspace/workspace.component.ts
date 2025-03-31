@@ -4,8 +4,8 @@ import {ConfigService} from "../../services/config.service";
 import {CollapseModule} from "ngx-bootstrap/collapse";
 import {CollectionComponent} from "./collection/collection.component";
 import {Product} from "../../models/Product";
-import {Explorer} from "../../models/Explorer";
 import {SettingsService} from "../../services/settings.service";
+import {ExplorerElement} from "../../models/ExplorerElement";
 
 @Component({
   selector: 'app-openapi-workspace',
@@ -16,23 +16,19 @@ import {SettingsService} from "../../services/settings.service";
 })
 export class WorkspaceComponent implements AfterViewInit {
 
-  explorer: Explorer;
+  //explorer: Explorer;
   products: Product[] | [] | undefined;
 
   constructor(
     private configService: ConfigService,
     private settingsService: SettingsService
   ) {
-    this.explorer = this.settingsService.loadSettings().explorer;
+    this.products = this.configService.getConfig()?.products;
   }
 
-  ngAfterViewInit(): void {
-    this.configService.getConfig().subscribe((config) => {
-      this.products = config.products;
-    });
-  }
+  ngAfterViewInit(): void { }
 
-  receiveValue(value: boolean) {
+  receiveValue(value: ExplorerElement) {
     console.log("Collection state:");
     console.log(value);
   }

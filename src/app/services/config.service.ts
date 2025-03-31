@@ -1,17 +1,29 @@
 import { Injectable } from '@angular/core';
 import {Config} from "../models/Config";
 import {HttpClient} from "@angular/common/http";
+import {firstValueFrom} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
 
-  configUrl = 'assets/config.json';
+  private config: Config | null = null;
 
   constructor(private http: HttpClient) { }
 
-  getConfig() {
-    return this.http.get<Config>(this.configUrl);
+  loadConfig(): Promise<void> {
+    return firstValueFrom(this.http.get<Config>('/assets/config.json'))
+      .then((data) => {
+        this.config = data;
+      })
+      .catch((error) => {
+        console.error('Failed to load config.json', error);
+        this.config = {} as Config; // Provide a fallback
+      });
+  }
+
+  getConfig(): Config | null {
+    return this.config;
   }
 }

@@ -3,6 +3,7 @@ import {TooltipModule} from "ngx-bootstrap/tooltip";
 import {CollapseModule} from "ngx-bootstrap/collapse";
 import {NgIf} from "@angular/common";
 import {Product} from "../../../models/Product";
+import {ExplorerElement} from "../../../models/ExplorerElement";
 
 @Component({
   selector: 'app-collection',
@@ -18,13 +19,16 @@ import {Product} from "../../../models/Product";
 export class CollectionComponent {
 
   @Input({ required: true }) product!: Product;
-  @Output() valueEmitted = new EventEmitter<boolean>();
+  @Output() valueEmitted = new EventEmitter<ExplorerElement>();
 
   isCollapsed = true;
 
   collapse() {
     this.isCollapsed = !this.isCollapsed;
-    this.valueEmitted.emit(this.isCollapsed);
+    this.valueEmitted.emit({
+      name: this.product.name,
+      active: !this.isCollapsed // invert for reasons to be correctly...
+    });
   }
 
 }

@@ -19,21 +19,31 @@ export class SettingsService {
   // Load settings from localStorage
   loadSettings(): Settings {
     const settings = localStorage.getItem(this.storageKey);
-    return settings ? JSON.parse(settings) : this.initSettings();
+    return settings ? JSON.parse(settings) :  this.initSettings();
   }
 
   initSettings(): Settings {
-    this.configService.getConfig().subscribe((config) => {
-    });
 
-    return {
+    const settings = {
       currentTheme: 'light',
-      explorer: { elements: [] }
-    };
+      explorer: {elements: []}
+    } as Settings;
+
+    const products = this.configService.getConfig()?.products || [];
+
+    for (const product of products) {
+      // @ts-ignore
+      settings.explorer.elements.push({
+        name: product.name,
+        active: false
+      });
+    }
+
+    return settings;
   }
 
   // Update a specific setting
-  updateSetting(key: keyof Settings, value: any): void {
+  updateSetting(key: keyof Settings, value: any):void {
     const settings = this.loadSettings();
     settings[key] = value;
     this.saveSettings(settings);
