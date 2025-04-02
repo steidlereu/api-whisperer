@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Settings} from "../models/Settings";
 import {ConfigService} from "./config.service";
+import {ExplorerElement} from "../models/ExplorerElement";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,25 @@ export class SettingsService {
   updateSetting(key: keyof Settings, value: any):void {
     const settings = this.loadSettings();
     settings[key] = value;
+    this.saveSettings(settings);
+  }
+
+  updateExplorerElement(newElement: ExplorerElement, collapse: (name: string) => void) {
+    const settings = this.loadSettings();
+    let elements = settings.explorer.elements;
+
+    for (const element of elements) {
+      if (element.name === newElement.name) {
+        element.active = newElement.active;
+      } else {
+        if (newElement.active && element.active) {
+          collapse(element.name);
+          element.active = false;
+        }
+      }
+    }
+
+    settings['explorer']['elements'] = elements;
     this.saveSettings(settings);
   }
 

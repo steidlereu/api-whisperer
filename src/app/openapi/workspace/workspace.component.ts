@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, QueryList, ViewChildren} from '@angular/core';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import {ConfigService} from "../../services/config.service";
 import {CollapseModule} from "ngx-bootstrap/collapse";
@@ -16,6 +16,8 @@ import {ExplorerElement} from "../../models/ExplorerElement";
 })
 export class WorkspaceComponent implements AfterViewInit {
 
+  @ViewChildren(CollectionComponent) children!: QueryList<CollectionComponent>;
+
   //explorer: Explorer;
   products: Product[] | [] | undefined;
 
@@ -31,6 +33,15 @@ export class WorkspaceComponent implements AfterViewInit {
   receiveValue(value: ExplorerElement) {
     console.log("Collection state:");
     console.log(value);
+    this.settingsService.updateExplorerElement(value, (name: string) => {
+      const child = this.children.find(child => child.product.name === name);
+      if (child) {
+        child.collapse();
+      } else {
+        console.log(`Child with name "${name}" not found`);
+      }
+    });
+    console.log(this.settingsService.loadSettings());
   }
 
 }
