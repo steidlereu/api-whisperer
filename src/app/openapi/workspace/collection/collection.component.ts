@@ -6,6 +6,7 @@ import {Product} from "../../../models/Product";
 import {ExplorerElement} from "../../../models/ExplorerElement";
 import {ConfigService} from "../../../services/config.service";
 import {SettingsService} from "../../../services/settings.service";
+import {DomainComponent} from "./domain/domain.component";
 
 @Component({
   selector: 'app-collection',
@@ -13,13 +14,15 @@ import {SettingsService} from "../../../services/settings.service";
   imports: [
     TooltipModule,
     CollapseModule,
-    NgIf
+    NgIf,
+    DomainComponent
   ],
   templateUrl: './collection.component.html',
   styleUrl: './collection.component.scss'
 })
 export class CollectionComponent implements AfterViewInit {
 
+  @Input({ required: true }) name!: string;
   @Input({ required: true }) product!: Product;
   @Output() valueEmitted = new EventEmitter<ExplorerElement>();
 
@@ -29,7 +32,7 @@ export class CollectionComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     for(const element of this.settingsService.loadSettings().explorer.elements) {
-      if (element.name === this.product.name) {
+      if (element.name === this.name) {
         this.isCollapsed = !element.active; // invert for reasons to be correctly...
       }
     }
@@ -38,7 +41,7 @@ export class CollectionComponent implements AfterViewInit {
   collapse(): void {
     this.isCollapsed = !this.isCollapsed;
     this.valueEmitted.emit({
-      name: this.product.name,
+      name: this.name,
       active: !this.isCollapsed // invert for reasons to be correctly...
     });
   }

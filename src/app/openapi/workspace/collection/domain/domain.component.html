@@ -1,1 +1,16 @@
-<p>domain works!</p>
+<div class="collection">
+  <div class="header row">
+    <div class="col-auto text-start collection-name">
+      <p tooltip="{{domain.name}}" placement="top" (click)="collapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+        <i *ngIf="isCollapsed" class="fa-solid fa-folder-closed"></i><i *ngIf="!isCollapsed" class="fa-regular fa-folder-open"></i> {{domain.name}}
+      </p>
+    </div>
+  </div>
+  <div class="elements row" id="collapseBasic" [collapse]="isCollapsed">
+    @for (service of domain.services ; track service.name) {
+      <div class="col-auto text-start collection-name">
+        <p tooltip="{{ service.name }}" placement="top"><i class="fa-solid fa-rocket"></i> {{ service.name }}</p>
+      </div>
+    }
+  </div>
+</div>

@@ -8,7 +8,7 @@
 <div class="border-bottom margin-row">
 
   @for (product of products ; track product.name) {
-    <app-collection [product]="product" (valueEmitted)="receiveValue($event)"></app-collection>
+    <app-collection [name]="product.name" [product]="product" (valueEmitted)="receiveValue($event)"></app-collection>
   }
 
   <!-- <div class="collection">

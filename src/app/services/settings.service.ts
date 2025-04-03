@@ -33,6 +33,16 @@ export class SettingsService {
     const products = this.configService.getConfig()?.products || [];
 
     for (const product of products) {
+
+      const domains = product.domains || [];
+
+      for (const domain of domains) {
+        settings.explorer.elements.push({
+          name: product.name + '/' + domain.name,
+          active: false
+        });
+      }
+
       // @ts-ignore
       settings.explorer.elements.push({
         name: product.name,
