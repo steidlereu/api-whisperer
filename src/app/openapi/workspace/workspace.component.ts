@@ -34,7 +34,7 @@ export class WorkspaceComponent implements AfterViewInit {
     console.log("Collection state:");
     console.log(value);
     this.settingsService.updateExplorerElement(value, (name: string) => {
-      const child = this.children.find(child => child.product.name === name);
+      const child = this.children.find(child => child.name === name);
       if (child) {
         child.collapse();
       } else {

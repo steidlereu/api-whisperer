@@ -68,15 +68,23 @@ export class SettingsService {
       if (element.name === newElement.name) {
         element.active = newElement.active;
       } else {
-        if (newElement.active && element.active) {
-          collapse(element.name);
-          element.active = false;
+        if (this.countExplorerElementDeep(newElement.name) === this.countExplorerElementDeep(element.name)) {
+          if (newElement.active && element.active) {
+            collapse(element.name);
+            element.active = false;
+          }
         }
       }
     }
 
     settings['explorer']['elements'] = elements;
     this.saveSettings(settings);
+  }
+
+  countExplorerElementDeep(inputString: string) {
+    const regex = new RegExp("/", "g");
+    const matches = inputString.match(regex);
+    return matches ? matches.length + 1 : 1;
   }
 
   // Get a specific setting

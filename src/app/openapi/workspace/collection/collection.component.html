@@ -13,7 +13,7 @@
   <div class="elements row" id="collapseBasic" [collapse]="isCollapsed">
     @for (domain of product.domains ; track domain.name) {
       <div class="col-auto text-start collection-name">
-        <app-domain [name]="name + '/' + domain.name" [domain]="domain"></app-domain>
+        <app-domain [name]="name + '/' + domain.name" [domain]="domain" (valueEmitted)="receiveValue($event)"></app-domain>
       </div>
     }
     <!--
