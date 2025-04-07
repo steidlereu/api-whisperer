@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Settings} from "../models/Settings";
 import {ConfigService} from "./config.service";
 import {ExplorerElement} from "../models/ExplorerElement";
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,16 @@ import {ExplorerElement} from "../models/ExplorerElement";
 export class SettingsService {
 
   private storageKey = 'app_settings';
+  private storageChangeSubject = new Subject<{ key: string; value: string | null }>();
+  public storageChange$ = this.storageChangeSubject.asObservable();
 
   constructor(private configService: ConfigService) { }
 
   // Save settings to localStorage
   saveSettings(settings: Settings): void {
-    localStorage.setItem(this.storageKey, JSON.stringify(settings));
+    const settingsString = JSON.stringify(settings);
+    localStorage.setItem(this.storageKey, settingsString);
+    this.storageChangeSubject.next({ key: this.storageKey, value: settingsString });
   }
 
   // Load settings from localStorage

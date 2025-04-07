@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { YamlEditorComponent } from "./yaml-editor/yaml-editor.component";
 import { WorkspaceComponent } from "./workspace/workspace.component";
 import { SwaggerUiComponent } from './swagger-ui/swagger-ui.component';
@@ -15,7 +15,7 @@ import { SettingsService } from '../services/settings.service'; // Adjust the pa
     styleUrl: './openapi.component.scss',
   imports: [YamlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent]
 })
-export class OpenapiComponent implements AfterViewInit {
+export class OpenapiComponent implements OnInit {
 
   @ViewChild(YamlEditorComponent) yamlEditor!: YamlEditorComponent
   
@@ -23,14 +23,16 @@ export class OpenapiComponent implements AfterViewInit {
       private configService: ConfigService,
       private settingsService: SettingsService
     ) { }
-    
-  ngAfterViewInit(): void {
-    console.log('OpenapiComponent initialized');
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'app_settings') {
-        console.log('Der Wert von yourKey hat sich geändert:' + event.newValue);
+
+
+  ngOnInit(): void {
+    this.settingsService.storageChange$.subscribe((data) => {
+      if (data.key === 'app_settings') {
+        this.settings = JSON.parse(data.value || '{}');
       }
-    });// Event-Listener für Änderungen im localStorage
+    });
+
+    this.settings = this.settingsService.loadSettings();
   }
 
   onSelect(data: TabDirective): void {
