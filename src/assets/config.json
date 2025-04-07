@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "CoffeeShop",
-      "description": "pathToDescription",
+      "description": "CoffeeShop path?",
       "domains": [
         {
           "name": "Order & Purchase",

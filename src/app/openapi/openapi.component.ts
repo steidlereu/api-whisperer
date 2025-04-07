@@ -28,11 +28,9 @@ export class OpenapiComponent implements OnInit {
   ngOnInit(): void {
     this.settingsService.storageChange$.subscribe((data) => {
       if (data.key === 'app_settings') {
-        this.settings = JSON.parse(data.value || '{}');
+        alert('Settings changed:' + data.value);
       }
     });
-
-    this.settings = this.settingsService.loadSettings();
   }
 
   onSelect(data: TabDirective): void {
