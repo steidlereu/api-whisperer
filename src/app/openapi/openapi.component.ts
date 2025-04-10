@@ -27,26 +27,13 @@ export class OpenapiComponent implements OnInit {
       private settingsService: SettingsService
     ) { }
 
-  private loadActiveProduct(): void {
-
-    const products = this.configService.getConfig()?.products || [];
-
-    for (const explorerElement of this.settingsService.loadSettings().explorer.elements) {
-
-      if (this.settingsService.countExplorerElementDeep(explorerElement.name) === 1) {
-        if (explorerElement.active) {
-          const product = products.find((product) => product.name === explorerElement.name);
-          alert('Product found: ' + product?.name);
-        }
-      }
-
-    }
-  }
-
   ngOnInit(): void {
+
+    this.activeProduct = this.settingsService.getActiveProduct(); // Inital load
+
     this.settingsService.storageChange$.subscribe((data) => {
       if (data.key === 'app_settings') {  
-        this.loadActiveProduct();
+        this.activeProduct = this.settingsService.getActiveProduct();
       }
     });
   }

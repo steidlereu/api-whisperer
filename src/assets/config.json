@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "CoffeeShop",
-      "description": "CoffeeShop path?",
+      "description": "/assets/coffee-shop-description.md",
       "domains": [
         {
           "name": "Order & Purchase",
@@ -43,7 +43,8 @@
       ]
     },
     {
-      "name": "FruitStore"
+      "name": "FruitStore",
+      "description": "/assets/fruit-store-description.md"
     }
   ]
 }

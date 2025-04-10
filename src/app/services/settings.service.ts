@@ -3,11 +3,17 @@ import {Settings} from "../models/Settings";
 import {ConfigService} from "./config.service";
 import {ExplorerElement} from "../models/ExplorerElement";
 import { Subject } from 'rxjs';
+import { Product } from '../models/Product';
+import { Domain } from '../models/Domain';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
+
+  readonly depthProduct = 1;
+  readonly depthDomain = 2;
+  readonly depthServices = 3;
 
   private storageKey = 'app_settings';
   private storageChangeSubject = new Subject<{ key: string; value: string | null }>();
@@ -90,6 +96,38 @@ export class SettingsService {
     const regex = new RegExp("/", "g");
     const matches = inputString.match(regex);
     return matches ? matches.length + 1 : 1;
+  }
+
+  getActiveProduct(): Product | null {
+
+    const products = this.configService.getConfig()?.products || [];
+
+    for (const explorerElement of this.loadSettings().explorer.elements) {
+
+      if (this.countExplorerElementDeep(explorerElement.name) === this.depthProduct) {
+        if (explorerElement.active) {
+          return products.find((product) => product.name === explorerElement.name) as Product;
+        }
+      }
+
+    }
+
+    return null;
+  }
+
+  getActiveDomain(product: Product): Domain | null {
+
+    for (const explorerElement of this.loadSettings().explorer.elements) {
+
+      if (this.countExplorerElementDeep(explorerElement.name) === this.depthDomain) {
+        if (explorerElement.active) {
+          return product?.domains?.find((domain) => domain.name === explorerElement.name) as Domain;
+        }
+      }
+
+    }
+
+    return null;
   }
 
   // Get a specific setting
