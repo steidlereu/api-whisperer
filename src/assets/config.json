@@ -5,11 +5,23 @@
       "description": "/assets/coffee-shop-description.md",
       "domains": [
         {
-          "name": "Order & Purchase",
-          "description": "pathToDescription",
+          "name": "Barista Workflow",
+          "description": "/assets/barista-workflow-description.md",
           "services": [
             {
-              "name": "PaymentMethods",
+              "name": "Order Queue Management",
+              "content": [
+                {
+                  "version": "",
+                  "displayVersion": "",
+                  "preview": false,
+                  "openAPI": "...",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "name": "Task Assignment",
               "content": [
                 {
                   "version": "",
@@ -23,11 +35,35 @@
           ]
         },
         {
-          "name": "Loyalty Program",
-          "description": "pathToDescription",
+          "name": "Menu Management",
+          "description": "/assets/menu-management-description.md",
           "services": [
             {
-              "name": "PaymentMethods",
+              "name": "Menu Item Management",
+              "content": [
+                {
+                  "version": "",
+                  "displayVersion": "",
+                  "preview": false,
+                  "openAPI": "...",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "name": "Category Management",
+              "content": [
+                {
+                  "version": "",
+                  "displayVersion": "",
+                  "preview": false,
+                  "openAPI": "...",
+                  "description": ""
+                }
+              ]
+            },
+            {
+              "name": "Allergen and Nutrition Information",
               "content": [
                 {
                   "version": "",

@@ -8,6 +8,7 @@ import {MarkdownComponent} from "ngx-markdown";
 import { ConfigService } from '../services/config.service'; // Adjust the path as necessary
 import { SettingsService } from '../services/settings.service'; // Adjust the path as necessary
 import { Product } from '../models/Product';
+import { Domain } from '../models/Domain';
 
 @Component({
     selector: 'app-openapi',
@@ -21,6 +22,7 @@ export class OpenapiComponent implements OnInit {
   @ViewChild(YamlEditorComponent) yamlEditor!: YamlEditorComponent
 
   activeProduct: Product | null = null;
+  activeDomain: Domain | null = null;
   
   constructor(
       private configService: ConfigService,
@@ -29,13 +31,24 @@ export class OpenapiComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.activeProduct = this.settingsService.getActiveProduct(); // Inital load
+    // Inital load
+    this.loadActiveElements();
 
     this.settingsService.storageChange$.subscribe((data) => {
       if (data.key === 'app_settings') {  
-        this.activeProduct = this.settingsService.getActiveProduct();
+        this.loadActiveElements();
       }
     });
+  }
+
+  loadActiveElements() {
+    this.activeProduct = this.settingsService.getActiveProduct();
+
+    if (this.activeProduct !== null) {
+      this.activeDomain = this.settingsService.getActiveDomain(this.activeProduct);
+    } else {
+      this.activeDomain = null;
+    }
   }
 
   onSelect(data: TabDirective): void {

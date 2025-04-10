@@ -1,0 +1,1 @@
+The Menu Management domain is responsible for managing the coffee shop's menu. It includes adding, updating, or removing menu items, organizing items into categories (e.g., beverages, snacks), managing pricing, and handling special offers or seasonal items. This domain ensures the menu is up-to-date and accessible for customers and staff.

@@ -1,0 +1,232 @@
+openapi: 3.0.3
+info:
+  title: Order Queue Management API
+  description: API for managing the order queue as part of the Barista Workflow domain.
+  version: 1.0.0
+servers:
+  - url: https://api.coffeeshop.com
+    description: Production server
+  - url: https://staging.api.coffeeshop.com
+    description: Staging server
+paths:
+  /api/orders:
+    post:
+      summary: Add a new order to the queue
+      description: Adds a new customer order to the queue for processing.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  type: string
+                  example: "12345"
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      itemId:
+                        type: string
+                        example: "coffee_001"
+                      quantity:
+                        type: integer
+                        example: 2
+                priority:
+                  type: string
+                  enum: [low, normal, high]
+                  example: "normal"
+                customerName:
+                  type: string
+                  example: "John Doe"
+      responses:
+        '200':
+          description: Order successfully added to the queue.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Order added to queue"
+                  queuePosition:
+                    type: integer
+                    example: 5
+  /api/orders/queue:
+    get:
+      summary: Retrieve the current order queue
+      description: Provides a real-time view of all orders in the queue.
+      responses:
+        '200':
+          description: List of orders in the queue.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    orderId:
+                      type: string
+                      example: "12341"
+                    status:
+                      type: string
+                      enum: [pending, in_progress, completed]
+                      example: "in_progress"
+                    priority:
+                      type: string
+                      enum: [low, normal, high]
+                      example: "high"
+  /api/orders/{orderId}/status:
+    patch:
+      summary: Update the status of an order
+      description: Updates the status of a specific order in the queue.
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "12345"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [pending, in_progress, completed]
+                  example: "in_progress"
+      responses:
+        '200':
+          description: Order status successfully updated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Order status updated"
+                  orderId:
+                    type: string
+                    example: "12345"
+                  newStatus:
+                    type: string
+                    example: "in_progress"
+  /api/orders/{orderId}/priority:
+    patch:
+      summary: Update the priority of an order
+      description: Changes the priority of a specific order in the queue.
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "12345"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                priority:
+                  type: string
+                  enum: [low, normal, high]
+                  example: "high"
+      responses:
+        '200':
+          description: Order priority successfully updated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Order priority updated"
+                  orderId:
+                    type: string
+                    example: "12345"
+                  newPriority:
+                    type: string
+                    example: "high"
+  /api/orders/{orderId}:
+    delete:
+      summary: Remove an order from the queue
+      description: Removes an order from the queue after completion or cancellation.
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "12345"
+      responses:
+        '200':
+          description: Order successfully removed from the queue.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Order removed from queue"
+                  orderId:
+                    type: string
+                    example: "12345"
+    get:
+      summary: Retrieve details of a specific order
+      description: Provides detailed information about a specific order.
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "12345"
+      responses:
+        '200':
+          description: Order details retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: string
+                    example: "12345"
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        itemId:
+                          type: string
+                          example: "coffee_001"
+                        quantity:
+                          type: integer
+                          example: 2
+                  status:
+                    type: string
+                    enum: [pending, in_progress, completed]
+                    example: "in_progress"
+                  priority:
+                    type: string
+                    enum: [low, normal, high]
+                    example: "high"
+                  customerName:
+                    type: string
+                    example: "John Doe"
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: "2025-04-10T10:00:00Z"

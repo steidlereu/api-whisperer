@@ -118,10 +118,10 @@ export class SettingsService {
   getActiveDomain(product: Product): Domain | null {
 
     for (const explorerElement of this.loadSettings().explorer.elements) {
-
+    
       if (this.countExplorerElementDeep(explorerElement.name) === this.depthDomain) {
         if (explorerElement.active) {
-          return product?.domains?.find((domain) => domain.name === explorerElement.name) as Domain;
+          return product?.domains?.find((domain) => product.name + '/' + domain.name === explorerElement.name) as Domain;
         }
       }
 
