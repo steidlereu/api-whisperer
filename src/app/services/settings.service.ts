@@ -5,6 +5,7 @@ import {ExplorerElement} from "../models/ExplorerElement";
 import { Subject } from 'rxjs';
 import { Product } from '../models/Product';
 import { Domain } from '../models/Domain';
+import { Service } from '../models/Service';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,16 @@ export class SettingsService {
       const domains = product.domains || [];
 
       for (const domain of domains) {
+
+        const services = domain.services || [];
+
+        for (const service of services) {
+          settings.explorer.elements.push({
+            name: product.name + '/' + domain.name + '/' + service.name,
+            active: false
+          });
+        }
+
         settings.explorer.elements.push({
           name: product.name + '/' + domain.name,
           active: false
@@ -122,6 +133,21 @@ export class SettingsService {
       if (this.countExplorerElementDeep(explorerElement.name) === this.depthDomain) {
         if (explorerElement.active) {
           return product?.domains?.find((domain) => product.name + '/' + domain.name === explorerElement.name) as Domain;
+        }
+      }
+
+    }
+
+    return null;
+  }
+
+  getActiveService(product: Product, domain: Domain): Service | null {
+
+    for (const explorerElement of this.loadSettings().explorer.elements) {
+
+      if (this.countExplorerElementDeep(explorerElement.name) === this.depthServices) {
+        if (explorerElement.active) {
+          return domain?.services?.find((service) => product.name + '/' + domain.name + '/' + service.name === explorerElement.name) as Service;
         }
       }
 

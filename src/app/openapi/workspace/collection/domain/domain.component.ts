@@ -5,6 +5,7 @@ import {TooltipModule} from "ngx-bootstrap/tooltip";
 import {CollapseModule} from "ngx-bootstrap/collapse";
 import {ExplorerElement} from "../../../../models/ExplorerElement";
 import {SettingsService} from "../../../../services/settings.service";
+import { ServiceComponent } from "./service/service.component";
 
 @Component({
   selector: 'app-domain',
@@ -12,8 +13,9 @@ import {SettingsService} from "../../../../services/settings.service";
   imports: [
     NgIf,
     TooltipModule,
-    CollapseModule
-  ],
+    CollapseModule,
+    ServiceComponent
+],
   templateUrl: './domain.component.html',
   styleUrl: './domain.component.scss'
 })
