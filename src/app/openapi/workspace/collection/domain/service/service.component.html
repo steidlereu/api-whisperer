@@ -1,3 +1,1 @@
-<div class="col-auto text-start collection-name">
-    <p tooltip="{{ service.name }}" placement="top"><i class="fa-solid fa-rocket"></i> {{ service.name }}</p>
-</div>
+<p (click)="toggle()" [ngClass]="{ 'isActive': isActive }" tooltip="{{ service.name }}" placement="top"><i class="fa-solid fa-rocket"></i> {{ service.name }}</p>

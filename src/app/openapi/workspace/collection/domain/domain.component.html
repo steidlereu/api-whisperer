@@ -8,9 +8,8 @@
   </div>
   <div class="elements row" id="collapseBasic" [collapse]="isCollapsed">
     @for (service of domain.services ; track service.name) {
-      <app-service [name]="name + '/' + service.name" [service]="service" (valueEmitted)="receiveValue($event)"></app-service>
-      <div class="col-auto text-start collection-name">
-        <p tooltip="{{ service.name }}" placement="top"><i class="fa-solid fa-rocket"></i> {{ service.name }}</p>
+      <div class="col-auto text-start collection-name service-name">
+        <app-service [name]="name + '/' + service.name" [service]="service" (valueEmitted)="receiveValue($event)"></app-service>
       </div>
     }
   </div>

@@ -45,4 +45,18 @@ export class DomainComponent implements AfterViewInit{
     });
   }
 
+  receiveValue(value: ExplorerElement) { 
+    console.log("Domain state:");
+    console.log(value);
+    this.settingsService.updateExplorerElement(value, (name: string) => {
+      const child = this.children.find(child => child.name === name);
+      if (child) {
+        child.collapse();
+      } else {
+        console.log(`Child with name "${name}" not found`);
+      }
+    });
+    console.log(this.settingsService.loadSettings());
+  }
+
 }
