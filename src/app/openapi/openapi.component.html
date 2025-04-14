@@ -16,6 +16,22 @@
             <markdown [src]="activeDomain?.description"></markdown>
           </div>
         </div>
+        <div *ngIf="activeProduct !== null" class="row">
+          <div class="col mb-5 d-flex justify-content-between align-items-center">
+            <h3>{{activeService?.name}}</h3>
+            <div class="btn-group" dropdown>
+              <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle"
+                      aria-controls="dropdown-basic">Versions<span class="caret"></span>
+              </button>
+              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="button-basic">
+                @for (service of sortServiceContent(activeService?.content) ; track service.version) {
+                  <li [attr.data-version-raw-id]="service.version" role="menuitem"><a class="dropdown-item" href="#">{{service.displayVersion}}</a></li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <tabset [justified]="true">
             <tab heading="Swagger UI">

@@ -9,13 +9,18 @@ import { ConfigService } from '../services/config.service'; // Adjust the path a
 import { SettingsService } from '../services/settings.service'; // Adjust the path as necessary
 import { Product } from '../models/Product';
 import { Domain } from '../models/Domain';
+import { Service } from '../models/Service';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Content } from '../models/Content';
+import * as semver from 'semver';
 
 @Component({
     selector: 'app-openapi',
     standalone: true,
     templateUrl: './openapi.component.html',
     styleUrl: './openapi.component.scss',
-  imports: [YamlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent]
+  imports: [YamlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule]
 })
 export class OpenapiComponent implements OnInit {
 
@@ -23,6 +28,7 @@ export class OpenapiComponent implements OnInit {
 
   activeProduct: Product | null = null;
   activeDomain: Domain | null = null;
+  activeService: Service | null = null;
   
   constructor(
       private configService: ConfigService,
@@ -46,9 +52,26 @@ export class OpenapiComponent implements OnInit {
 
     if (this.activeProduct !== null) {
       this.activeDomain = this.settingsService.getActiveDomain(this.activeProduct);
+      if (this.activeDomain !== null) {
+        this.activeService = this.settingsService.getActiveService(this.activeProduct, this.activeDomain);
+      } else {
+        this.activeService = null;
+      }
     } else {
       this.activeDomain = null;
     }
+  }
+
+  sortServiceContent(content: Content[] | undefined): Content[] {
+    return (content ?? []).sort((a, b) => {
+      // Sortiere nach preview (false zuerst)
+      if (a.preview !== b.preview) {
+        return a.preview ? 1 : -1;
+      }
+  
+      // Sortiere nach semantischer Version (neueste zuerst)
+      return semver.compare(b.version, a.version);
+    });
   }
 
   onSelect(data: TabDirective): void {

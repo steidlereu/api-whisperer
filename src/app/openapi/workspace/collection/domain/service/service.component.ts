@@ -35,6 +35,8 @@ export class ServiceComponent implements AfterViewInit{
 
   toggle(): void {
     this.isActive = !this.isActive;
+    console.log("Service state:");
+    console.log(this.isActive); 
     this.valueEmitted.emit({
       name: this.name,
       active: this.isActive

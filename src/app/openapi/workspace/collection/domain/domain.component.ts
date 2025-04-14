@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, Output, QueryList, ViewChildren} from '@angular/core';
 import {Domain} from "../../../../models/Domain";
 import {NgIf} from "@angular/common";
 import {TooltipModule} from "ngx-bootstrap/tooltip";
@@ -25,6 +25,8 @@ export class DomainComponent implements AfterViewInit{
   @Input({ required: true }) domain!: Domain;
   @Output() valueEmitted = new EventEmitter<ExplorerElement>();
 
+  @ViewChildren(ServiceComponent) children!: QueryList<ServiceComponent>;
+
   isCollapsed = true;
 
   constructor(private settingsService: SettingsService) { }
@@ -50,8 +52,11 @@ export class DomainComponent implements AfterViewInit{
     console.log(value);
     this.settingsService.updateExplorerElement(value, (name: string) => {
       const child = this.children.find(child => child.name === name);
+      console.log('trggered');
+      console.log(child?.name);
       if (child) {
-        child.collapse();
+        console.log(`Child with name "${child.name}" found`);
+        child.toggle();
       } else {
         console.log(`Child with name "${name}" not found`);
       }

@@ -91,7 +91,11 @@ export class SettingsService {
         element.active = newElement.active;
       } else {
         if (this.countExplorerElementDeep(newElement.name) === this.countExplorerElementDeep(element.name)) {
+          console.log("Same depth");
+          console.log(element.name);
           if (newElement.active && element.active) {
+            console.log("Same depth");
+            console.log(element.name);
             collapse(element.name);
             element.active = false;
           }
