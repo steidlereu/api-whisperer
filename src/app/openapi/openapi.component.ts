@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import { YamlEditorComponent } from "./yaml-editor/yaml-editor.component";
 import { WorkspaceComponent } from "./workspace/workspace.component";
 import { SwaggerUiComponent } from './swagger-ui/swagger-ui.component';
@@ -14,6 +14,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Content } from '../models/Content';
 import * as semver from 'semver';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-openapi',
@@ -32,14 +33,23 @@ export class OpenapiComponent implements OnInit {
   activeServiceContent: Content | null = null;
   
   constructor(
+      private route: ActivatedRoute,
       private configService: ConfigService,
-      private settingsService: SettingsService
+      private settingsService: SettingsService,
+      private cdr: ChangeDetectorRef
     ) { }
 
   ngOnInit(): void {
-
+    
     // Inital load
     this.loadActiveElements();
+    this.cdr.detectChanges();
+
+    this.route.queryParams.subscribe(params => {
+      const product = params['product'];
+      const domain = params['domain'];
+      const service = params['service'];
+    });
 
     this.settingsService.storageChange$.subscribe((data) => {
       if (data.key === 'app_settings') {  
@@ -84,8 +94,6 @@ export class OpenapiComponent implements OnInit {
   }
 
   onDropdownChange(serviceContent: Content): void {
-    console.log("Service content changed:");
-    console.log(serviceContent);
     this.activeServiceContent = serviceContent;
   }
 

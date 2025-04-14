@@ -31,8 +31,6 @@ export class WorkspaceComponent implements AfterViewInit {
   ngAfterViewInit(): void { }
 
   receiveValue(value: ExplorerElement) {
-    console.log("Collection state:");
-    console.log(value);
     this.settingsService.updateExplorerElement(value, (name: string) => {
       const child = this.children.find(child => child.name === name);
       if (child) {

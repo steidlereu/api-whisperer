@@ -30,7 +30,7 @@
                   "displayVersion": "2.0.0 preview",
                   "preview": true,
                   "openAPI": "/assets/order-queue-management-openapi_v2.yaml",
-                  "description": "/assets/order-queue-management-description_v2.md"
+                  "description": "/assets/order-queue-management-journey_v2.md"
                 }
               ]
             },
