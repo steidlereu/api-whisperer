@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild} from '@angular/core';
 import * as monaco from 'monaco-editor';
 import { ThemeService } from '../../services/theme.service';
 import { OpenapiWorkspaceService } from '../../services/openapi-workspace.service';
@@ -13,7 +13,11 @@ import { YamlLoaderService } from '../../services/yaml-loader.service';
   styleUrl: './yaml-editor.component.scss'
 })
 
-export class YamlEditorComponent implements AfterViewInit, OnDestroy {
+export class YamlEditorComponent implements AfterViewInit, OnDestroy, OnChanges {
+
+  @Input({ required: true }) openAPI!: string | undefined;
+
+  //@Input({ required: true }) openAPI!: string | undefined;
   @ViewChild('editorContainer', { static: false }) editorContainer!: ElementRef;
 
   editor!: monaco.editor.IStandaloneCodeEditor;
@@ -59,11 +63,23 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy {
     });
     */
 
-    this.workspaceService.init(this.editor);
+    //this.workspaceService.init(this.editor); // This is only for active file-changes...
 
     this.editor.onDidChangeModelContent(() => {
       this.resizeEditor();
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['openAPI'] && changes['openAPI'].currentValue) {
+      if (this.openAPI) {
+        this.yamlLoaderService.loadRaw(this.openAPI).then(data => {
+          this.editor.setValue(data);
+        });
+      } else {
+        console.error("openAPI is undefined");
+      }
+    }
   }
 
   ngOnDestroy() {

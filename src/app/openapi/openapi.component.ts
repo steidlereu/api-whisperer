@@ -29,6 +29,7 @@ export class OpenapiComponent implements OnInit {
   activeProduct: Product | null = null;
   activeDomain: Domain | null = null;
   activeService: Service | null = null;
+  activeServiceContent: Content | null = null;
   
   constructor(
       private configService: ConfigService,
@@ -54,8 +55,10 @@ export class OpenapiComponent implements OnInit {
       this.activeDomain = this.settingsService.getActiveDomain(this.activeProduct);
       if (this.activeDomain !== null) {
         this.activeService = this.settingsService.getActiveService(this.activeProduct, this.activeDomain);
+        this.activeServiceContent = this.sortServiceContent(this.activeService?.content)[0];
       } else {
         this.activeService = null;
+        this.activeServiceContent = null;
       }
     } else {
       this.activeDomain = null;
@@ -78,6 +81,12 @@ export class OpenapiComponent implements OnInit {
     setTimeout(() => {
       this.yamlEditor?.resizeEditor();
     }, 50);
+  }
+
+  onDropdownChange(serviceContent: Content): void {
+    console.log("Service content changed:");
+    console.log(serviceContent);
+    this.activeServiceContent = serviceContent;
   }
 
 }
