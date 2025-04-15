@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
-import { SideNavComponent } from "./side-nav/side-nav.component";
 import { FooterComponent } from "./footer/footer.component";
 
 @Component({
@@ -9,7 +8,7 @@ import { FooterComponent } from "./footer/footer.component";
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-  imports: [RouterOutlet, HeaderComponent, SideNavComponent, FooterComponent]
+  imports: [RouterOutlet, HeaderComponent, FooterComponent]
 })
 export class AppComponent {
   title = 'api-whisperer';

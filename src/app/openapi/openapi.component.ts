@@ -14,7 +14,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Content } from '../models/Content';
 import * as semver from 'semver';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-openapi',
@@ -33,23 +32,19 @@ export class OpenapiComponent implements OnInit {
   activeServiceContent: Content | null = null;
   
   constructor(
-      private route: ActivatedRoute,
       private configService: ConfigService,
       private settingsService: SettingsService,
       private cdr: ChangeDetectorRef
     ) { }
 
   ngOnInit(): void {
-    
+
+    // Initialize settings
+    this.settingsService.initalizeSettings();
+
     // Inital load
     this.loadActiveElements();
     this.cdr.detectChanges();
-
-    this.route.queryParams.subscribe(params => {
-      const product = params['product'];
-      const domain = params['domain'];
-      const service = params['service'];
-    });
 
     this.settingsService.storageChange$.subscribe((data) => {
       if (data.key === 'app_settings') {  

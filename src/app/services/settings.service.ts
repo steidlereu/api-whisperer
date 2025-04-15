@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import {Settings} from "../models/Settings";
 import {ConfigService} from "./config.service";
 import {ExplorerElement} from "../models/ExplorerElement";
-import { Subject } from 'rxjs';
+import { Subject, switchMap } from 'rxjs';
 import { Product } from '../models/Product';
 import { Domain } from '../models/Domain';
 import { Service } from '../models/Service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,59 @@ export class SettingsService {
   private storageChangeSubject = new Subject<{ key: string; value: string | null }>();
   public storageChange$ = this.storageChangeSubject.asObservable();
 
-  constructor(private configService: ConfigService) { }
+  constructor(
+    private configService: ConfigService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+  initalizeSettings(): void {
+
+    const path = this.route.snapshot.children[0].url[0].path
+    const params = this.route.snapshot.children[0].params;
+    const settings = this.loadSettings();
+
+    let isUpdate = false;
+
+    if (params['product'] !== undefined) {
+      console.log("Product: " + params['product']);
+      for (const element of settings.explorer.elements) {
+        if (element.name === params['product']) {
+          element.active = true;
+          isUpdate = true;
+        } else {
+          element.active = false;
+        }
+      }
+    }
+
+    if (params['domain'] !== undefined) {
+      for (const element of settings.explorer.elements) {
+        if (element.name === params['domain']) {
+          element.active = true;
+          isUpdate = true; 
+        } else {  
+          element.active = false;
+        }
+      }
+    }
+
+    if (params['service'] !== undefined) {
+      for (const element of settings.explorer.elements) {
+        if (element.name === params['service']) {
+          element.active = true;
+          isUpdate = true;
+        } else {
+          element.active = false;
+        }
+      }
+    }
+
+    if (isUpdate) {
+      this.saveSettings(settings);
+      this.router.navigate(['/' + path]);
+    }
+  }
 
   // Save settings to localStorage
   saveSettings(settings: Settings): void {
