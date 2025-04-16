@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+
+  copyright: string = this.configService.getConfig()?.websiteTitle || '2023 API Whisperer. All rights reserved.';
+
+  constructor(private configService: ConfigService) { }
 
 }

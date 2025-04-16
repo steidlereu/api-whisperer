@@ -35,35 +35,17 @@ export class SettingsService {
 
     let isUpdate = false;
 
-    if (params['product'] !== undefined) {
-      console.log("Product: " + params['product']);
-      for (const element of settings.explorer.elements) {
-        if (element.name === params['product']) {
-          element.active = true;
-          isUpdate = true;
-        } else {
-          element.active = false;
-        }
-      }
-    }
+    const paramProduct = params['product'];
+    const paramDomain = params['domain'];
+    const paramService = params['service'];
 
-    if (params['domain'] !== undefined) {
-      for (const element of settings.explorer.elements) {
-        if (element.name === params['domain']) {
-          element.active = true;
-          isUpdate = true; 
-        } else {  
-          element.active = false;
-        }
+    for (const element of settings.explorer.elements) {
+      if (element.name === paramProduct || element.name === paramDomain || element.name === paramService) {
+        element.active = true;
+        isUpdate = true;
       }
-    }
-
-    if (params['service'] !== undefined) {
-      for (const element of settings.explorer.elements) {
-        if (element.name === params['service']) {
-          element.active = true;
-          isUpdate = true;
-        } else {
+      else {
+        if (paramProduct !== undefined || paramDomain !== undefined || paramService !== undefined) {
           element.active = false;
         }
       }

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ConfigService } from '../services/config.service';
+import { CompanyAddress } from '../models/CompanyAddress';
+import { About } from '../models/About';
 
 @Component({
   selector: 'app-about',
@@ -8,12 +11,26 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
-  companyName = 'steuerfix GmbH';
-  companyAddress = 'Musterstraße 1 80800 München';
-  companyEmail = 'your.email@example.com';
-  companyPhone = '+123 456 7890';
-  companyRegistrationNumber = 'Your Company Registration Number';
-  companyTaxId = '123456789';
-  representative = 'John Doe';
-  representativePosition = 'CEO';
+
+  companyName: string;
+  companyAddress: CompanyAddress;
+  companyEmail: string;
+  companyPhone: string;
+  companyRegistrationNumber: string;
+  companyTaxId: string;
+  representative: string;
+  representativePosition: string;
+
+  constructor(private configService: ConfigService) {
+    const about = this.configService.getConfig()?.about || {} as About;
+    this.companyName = about?.companyName || '';
+    this.companyAddress = about.companyAddress || {} as CompanyAddress;
+    this.companyEmail = about.companyEmail || '';
+    this.companyPhone = about.companyPhone || '';
+    this.companyRegistrationNumber = about.companyRegistrationNumber || '';
+    this.companyTaxId = about.companyTaxId || '';
+    this.representative = about.representative || '';
+    this.representativePosition = about.representativePosition || '';
+  }
+
 }
