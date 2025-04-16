@@ -23,7 +23,7 @@
   }
 
   .info .title small.version-stamp {
-    background-color: $custom-primary;
+    background-color: var(--custom-primary);
   }
 
   .scheme-container {
@@ -31,8 +31,8 @@
   }
 
   .btn {
-    background: $custom-primary;;
-    border: 2px solid $custom-primary;;
+    background: var(--custom-primary);
+    border: 2px solid var(--custom-primary);
     border-radius: 4px;
     box-shadow: none;
     color: white;
@@ -52,59 +52,59 @@
 [data-bs-theme=light] {
   .swagger-ui {
 
-    color: $custom-secondary;
+    color: var(--custom-secondary);
 
     .info {
 
       .title, p {
-        color: $custom-secondary;
+        color: var(--custom-secondary);
       }
 
     }
 
     select {
-      color: $custom-secondary;
-      border: 2px solid $custom-secondary;
+      color: var(--custom-secondary);
+      border: 2px solid var(--custom-secondary);
     }
 
     .opblock .opblock-section-header {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     .opblock .opblock-section-header h4 {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     a.nostyle, .opblock .opblock-summary-description, .model-title {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     .opblock-description-wrapper p, .opblock-external-docs-wrapper p, .opblock-title_normal p {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     .response-col_status {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     table thead tr td, table thead tr th {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     .tab li button.tablinks {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     .model {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     section.models h4 {
-      color: $custom-secondary;
+      color: var(--custom-secondary);
     }
 
     .expand-operation svg, .opblock-control-arrow svg {
-      fill: $custom-secondary;
+      fill: var(--custom-secondary);
     }
 
   }
@@ -124,7 +124,7 @@
     }
 
     .scheme-container {
-      background: $custom-secondary;
+      background: var(--custom-secondary);
     }
 
     select {
@@ -139,7 +139,7 @@
 
     .opblock .opblock-section-header {
       color: white;
-      background: $custom-secondary;
+      background: var(--custom-secondary);
     }
 
     .opblock .opblock-section-header h4 {

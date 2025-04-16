@@ -7,5 +7,5 @@
     left: 0;
     background: var(--bs-body-bg);
     z-index: 1000;
-    border-bottom: 5px solid $custom-primary !important;
+    border-bottom: 5px solid var(--custom-primary) !important;
 }

@@ -1,6 +1,9 @@
 {
-  "websiteTitle": "Coffee & Fruits Developer Portal",
-  "websiteCopyright": "2023 Coffee & Fruits GmbH. All rights reserved.",
+  "website": {
+    "title": "Coffee & Fruits Developer Portal",
+    "copyright": "2023 Coffee & Fruits GmbH. All rights reserved.",
+    "styles": "/assets/custom-styles.css"
+  },
   "products": [
     {
       "name": "CoffeeShop",

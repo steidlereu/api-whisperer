@@ -10,7 +10,7 @@ import { ConfigService } from '../services/config.service';
 })
 export class FooterComponent {
 
-  copyright: string = this.configService.getConfig()?.websiteTitle || '2023 API Whisperer. All rights reserved.';
+  copyright: string = this.configService.getConfig()?.website.copyright || '2023 API Whisperer. All rights reserved.';
 
   constructor(private configService: ConfigService) { }
 

@@ -12,7 +12,7 @@ import { ConfigService } from '../services/config.service';
 })
 export class HeaderComponent {
 
-  title: string = this.configService.getConfig()?.websiteTitle || 'API Whisperer';
+  title: string = this.configService.getConfig()?.website.title || 'API Whisperer';
 
   constructor(private configService: ConfigService) { }
 

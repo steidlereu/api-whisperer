@@ -26,6 +26,11 @@ $link-hover-color: darken($primary, 10%);
 $body-bg-dark: $custom-secondary;
 $border-width: 2px;
 
+:root {
+  --custom-primary: #{$custom-primary}; /* primary */
+  --custom-secondary: #{$custom-secondary}; /* secondary */
+}
+
 $theme-colors: (
   "primary":    $primary-light,
   "secondary":  $secondary-light,

@@ -21,17 +21,17 @@
         &:hover {
             //color: $custom-primary;
             background: var(--bs-border-color);
-            border-bottom: 2px solid $custom-primary !important;
+            border-bottom: 2px solid var(--custom-primary) !important;
         }
 
         &.active {
-            background: $custom-primary;
-            border-bottom: 2px solid $custom-primary !important;
+            background: var(--custom-primary);
+            border-bottom: 2px solid var(--custom-primary) !important;
             color: white;
 
             &:hover {
-                border-bottom: 2px solid #bc0000 !important;
-                background: #bc0000;
+                border-bottom: 2px solid var(--custom-primary) !important;
+                background: var(--custom-primary);
             }
         }
     }

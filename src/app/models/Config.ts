@@ -1,9 +1,9 @@
 import { About } from "./About";
 import {Product} from "./Product";
+import { Website } from "./Website";
 
 export interface Config {
-  websiteTitle: string;
-  websiteCopyright: string;
+  website: Website;
   products: Product[];
   about: About
 }
