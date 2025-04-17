@@ -1,7 +1,7 @@
 <div class="collection">
   <div class="header row">
     <div class="col-auto text-start collection-name">
-      <p tooltip="{{domain.name}}" placement="top" (click)="collapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+      <p class="collapser" tooltip="{{domain.name}}" placement="top" (click)="collapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
         <i *ngIf="isCollapsed" class="fa-solid fa-folder-closed"></i><i *ngIf="!isCollapsed" class="fa-regular fa-folder-open"></i> {{domain.name}}
       </p>
     </div>

@@ -4,6 +4,52 @@
     "copyright": "2023 Coffee & Fruits GmbH. All rights reserved.",
     "styles": "/assets/custom-styles.css"
   },
+  "navigation": {
+    "main": [
+      {
+        "label": "Getting started",
+        "path": "getting-started",
+        "src": "/assets/getting-started.md"
+      },
+      {
+        "label": "Contact",
+        "path": "contact",
+        "src": "/assets/contact.md",
+        "hidden": true
+      },
+      {
+        "label": "iOS SDK",
+        "path": "https://developer.apple.com/",
+        "external": true,
+        "blank": true
+      }
+    ],
+    "footer": [
+      {
+        "name": "Company",
+        "links": [
+          {
+            "name": "About Us",
+            "url": "/about"
+          },
+          {
+            "name": "Contact",
+            "url": "/contact"
+          }
+        ]
+      },
+      {
+        "name": "Resources",
+        "links": [
+          {
+            "name": "Support",
+            "url": "https://github.com/features/issues",
+            "blank": true
+          }
+        ]
+      }
+    ]
+  },
   "products": [
     {
       "name": "CoffeeShop",

@@ -1,3 +1,8 @@
 .service-name {
+    cursor: pointer;
     padding-left: calc(var(--bs-gutter-x)* 1);
+}
+
+.collapser {
+    cursor: pointer;
 }
