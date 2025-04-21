@@ -5,10 +5,10 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { HttpClientModule } from '@angular/common/http';
 import {MarkdownModule} from "ngx-markdown";
 import {ConfigService} from "./services/config.service";
 import { OpenapiComponent } from './openapi/openapi.component';
+import { provideHttpClient } from '@angular/common/http';
 
 export function initializeApp(configService: ConfigService, router: Router) {
   return async() => {
@@ -31,14 +31,15 @@ export const appConfig: ApplicationConfig = {
       deps: [ConfigService, Router],
       multi: true, // Ensures it runs before app starts
     },
-    provideRouter(routes), provideServiceWorker('ngsw-worker.js', {
+    provideRouter(routes),
+    provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     }),
     provideAnimations(),
+    provideHttpClient(),
     importProvidersFrom(
-      BsDropdownModule.forRoot(),
-      HttpClientModule,
+      BsDropdownModule.forRoot(),  
       MarkdownModule.forRoot()
     ),
   ]

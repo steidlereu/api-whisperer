@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Config} from "../models/Config";
-import {HttpClient} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'

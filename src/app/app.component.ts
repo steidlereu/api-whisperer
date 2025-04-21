@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { StylesService } from './services/styles.service'; // Adjust the path as needed
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
