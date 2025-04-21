@@ -148,6 +148,10 @@
       "description": "/assets/fruit-store-description.md"
     }
   ],
+  "home": {
+    "title": "Welcome to the Coffee & Fruits Developer Portal",
+    "description": "Explore our APIs and SDKs to enhance your applications."
+  },
   "about": {
     "companyName": "Coffee & Fruits GmbH",
     "companyAddress": {
