@@ -1,6 +1,6 @@
 {
   "name": "api-whisperer",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Free software to create a developer portal and API portal for exploring APIs, documentation, and tools.",
   "author": "Felix Steidler <info@steidler.eu>",
   "contributors": [
