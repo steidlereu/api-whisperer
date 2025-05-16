@@ -1,0 +1,38 @@
+@import "../../colors.scss";
+
+.sidenav {
+
+    padding: 0;
+
+    &.navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+    }
+
+    .container-fluid {
+        padding: 0 !important;
+    }
+
+    .nav-link {
+        font-size: 20px;
+        padding: 10px 20px;
+        //color: $custom-primary;
+        color: var(--bs-body-color);
+
+        &:hover {
+            //color: $custom-primary;
+            background: var(--bs-border-color);
+            border-bottom: 2px solid var(--custom-primary) !important;
+        }
+
+        &.active {
+            background: var(--custom-primary);
+            border-bottom: 2px solid var(--custom-primary) !important;
+            color: white;
+
+            &:hover {
+                border-bottom: 2px solid var(--custom-primary) !important;
+                background: var(--custom-primary);
+            }
+        }
+    }
+}

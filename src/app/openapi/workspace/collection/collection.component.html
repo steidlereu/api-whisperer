@@ -1,0 +1,24 @@
+<div class="collection">
+  <div class="header row">
+    <div class="col-auto text-start collection-name">
+      <p routerLink="/explore/{{name}}" tooltip="{{product.name}}" placement="top" (click)="collapse(true)" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+        <i *ngIf="isCollapsed" class="fa-solid fa-folder-closed"></i><i *ngIf="!isCollapsed" class="fa-regular fa-folder-open"></i> {{product.name}}
+      </p>
+    </div>
+    <!--
+    <div class="col text-end collection-options">
+      <p><i class="fa-solid fa-ellipsis-vertical"></i></p>
+    </div>-->
+  </div>
+  <div class="elements row" id="collapseBasic" [collapse]="isCollapsed">
+    @for (domain of product.domains ; track domain.name) {
+      <div class="col-auto text-start collection-name">
+        <app-domain [name]="name + '/' + domain.name" [domain]="domain" (valueEmitted)="receiveValue($event)"></app-domain>
+      </div>
+    }
+    <!--
+    <div class="col text-end collection-options">
+      <p><i class="fa-solid fa-ellipsis-vertical"></i></p>
+    </div>-->
+  </div>
+</div>

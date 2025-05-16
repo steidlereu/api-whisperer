@@ -1,0 +1,160 @@
+openapi: 3.0.3
+info:
+  title: FruitStore Partner API
+  description: Secure API access for FruitStore partners to manage fruits, inventory, and order data.
+  version: 1.0.0
+
+servers:
+  - url: https://partner-api.fruitstore.com/v1
+    description: Production server for partners
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Fruit:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        price:
+          type: number
+        inStock:
+          type: boolean
+
+    FruitInput:
+      type: object
+      required:
+        - name
+        - price
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+        inStock:
+          type: boolean
+
+    InventoryStatus:
+      type: object
+      properties:
+        fruitId:
+          type: string
+        currentStock:
+          type: integer
+
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        fruitId:
+          type: string
+        quantity:
+          type: integer
+        timestamp:
+          type: string
+          format: date-time
+
+security:
+  - BearerAuth: []
+
+paths:
+  /partner/fruits:
+    get:
+      summary: List all fruits
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of fruits
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Fruit'
+
+    post:
+      summary: Add a new fruit
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FruitInput'
+      responses:
+        '201':
+          description: Fruit created
+
+  /partner/fruits/{fruitId}:
+    put:
+      summary: Update a fruit
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: fruitId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FruitInput'
+      responses:
+        '200':
+          description: Fruit updated
+
+    delete:
+      summary: Delete a fruit
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: fruitId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Fruit deleted
+
+  /partner/inventory:
+    get:
+      summary: Get current inventory levels
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Inventory data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InventoryStatus'
+
+  /partner/orders:
+    get:
+      summary: Get recent orders
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'

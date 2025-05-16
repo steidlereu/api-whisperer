@@ -1,0 +1,183 @@
+@import "../../../colors.scss";
+
+.swagger-ui {
+
+  padding-bottom: 50px;
+
+  .info {
+    margin: 0 !important;
+    padding-top: 50px;
+
+    .url {
+      display: none;
+    }
+
+  }
+
+  .model-box-control:focus, .models-control:focus, .opblock-summary-control:focus {
+    outline: none;
+  }
+
+  section.models.is-open {
+    margin: 0;
+  }
+
+  .info .title small.version-stamp {
+    background-color: var(--custom-primary);
+  }
+
+  .scheme-container {
+    box-shadow: none;
+  }
+
+  .btn {
+    background: var(--custom-primary);
+    border: 2px solid var(--custom-primary);
+    border-radius: 4px;
+    box-shadow: none;
+    color: white;
+    font-family: system-ui, -apple-system, "Segoe UI";
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 23px;
+    transition: all .3s;
+  }
+
+  .btn:hover, .btn:focus, .btn:active {
+    box-shadow: none;
+  }
+
+}
+
+[data-bs-theme=light] {
+  .swagger-ui {
+
+    color: var(--custom-secondary);
+
+    .info {
+
+      .title, p {
+        color: var(--custom-secondary);
+      }
+
+    }
+
+    select {
+      color: var(--custom-secondary);
+      border: 2px solid var(--custom-secondary);
+    }
+
+    .opblock .opblock-section-header {
+      color: var(--custom-secondary);
+    }
+
+    .opblock .opblock-section-header h4 {
+      color: var(--custom-secondary);
+    }
+
+    a.nostyle, .opblock .opblock-summary-description, .model-title {
+      color: var(--custom-secondary);
+    }
+
+    .opblock-description-wrapper p, .opblock-external-docs-wrapper p, .opblock-title_normal p {
+      color: var(--custom-secondary);
+    }
+
+    .response-col_status {
+      color: var(--custom-secondary);
+    }
+
+    table thead tr td, table thead tr th {
+      color: var(--custom-secondary);
+    }
+
+    .tab li button.tablinks {
+      color: var(--custom-secondary);
+    }
+
+    .model {
+      color: var(--custom-secondary);
+    }
+
+    section.models h4 {
+      color: var(--custom-secondary);
+    }
+
+    .expand-operation svg, .opblock-control-arrow svg {
+      fill: var(--custom-secondary);
+    }
+
+  }
+}
+
+[data-bs-theme=dark] {
+  .swagger-ui {
+
+    color: white;
+
+    .info {
+
+      .title, p {
+        color: white;
+      }
+
+    }
+
+    .scheme-container {
+      background: var(--custom-secondary);
+    }
+
+    select {
+      color: white;
+      background: $custom-secondary url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="white" d="M13.418 7.859a.695.695 0 0 1 .978 0 .68.68 0 0 1 0 .969l-3.908 3.83a.697.697 0 0 1-.979 0l-3.908-3.83a.68.68 0 0 1 0-.969.695.695 0 0 1 .978 0L10 11z"/></svg>') right 10px center no-repeat;
+      border: 2px solid white;
+    }
+
+    .model-toggle:after {
+      background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>') 50% no-repeat;
+    }
+
+    .opblock .opblock-section-header {
+      color: white;
+      background: var(--custom-secondary);
+    }
+
+    .opblock .opblock-section-header h4 {
+      color: white;
+    }
+
+    a.nostyle, .opblock .opblock-summary-description, .model-title {
+      color: white;
+    }
+
+    .opblock-description-wrapper p, .opblock-external-docs-wrapper p, .opblock-title_normal p {
+      color: white;
+    }
+
+    .response-col_status {
+      color: white;
+    }
+
+    table thead tr td, table thead tr th {
+      color: white;
+    }
+
+    .tab li button.tablinks {
+      color: white;
+    }
+
+    .model {
+      color: white;
+    }
+
+    section.models h4 {
+      color: white;
+    }
+
+    .expand-operation svg, .opblock-control-arrow svg {
+      fill: white;
+    }
+
+  }
+}
+

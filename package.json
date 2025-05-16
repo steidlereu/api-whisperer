@@ -1,0 +1,86 @@
+{
+  "name": "api-whisperer",
+  "version": "0.0.1",
+  "description": "Free software to create a developer portal and API portal for exploring APIs, documentation, and tools.",
+  "author": "Felix Steidler <info@steidler.eu>",
+  "contributors": [
+    {
+      "name": "Felix Steidler",
+      "email": "info@steidler.eu",
+      "url": "https://www.steidler.eu/"
+    }
+  ],
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "homepage": "https://github.com/steidlereu/api-whisperer#readme",
+  "files": [
+    "build/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steidlereu/api-whisperer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/steidlereu/api-whisperer/issues"
+  },
+  "keywords": [
+    "developer-portal",
+    "api-portal",
+    "API",
+    "documentation",
+    "developer-tools"
+  ],
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build:prod": "ng build --configuration production",
+    "build:dev": "ng build --configuration development",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "postinstall": "node scripts/postinstall.js",
+    "postbuild": "node scripts/postbuild.js"
+  },
+  "private": false,
+  "dependencies": {
+    "@angular/animations": "^18.2.13",
+    "@angular/common": "^18.2.13",
+    "@angular/compiler": "^18.2.13",
+    "@angular/core": "^18.2.13",
+    "@angular/forms": "^18.2.13",
+    "@angular/platform-browser": "^18.2.13",
+    "@angular/platform-browser-dynamic": "^18.2.13",
+    "@angular/router": "^18.2.13",
+    "@angular/service-worker": "^18.2.13",
+    "@apidevtools/swagger-parser": "^10.1.0",
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/swagger-ui": "^3.52.4",
+    "ajv": "^8.16.0",
+    "bootstrap": "^5.3.3",
+    "js-yaml": "^4.1.0",
+    "monaco-editor": "^0.48.0",
+    "ngx-bootstrap": "^19.0.2",
+    "ngx-markdown": "^19.1.1",
+    "openapi-schema-validator": "^12.1.3",
+    "rxjs": "~7.8.0",
+    "semver": "^7.7.1",
+    "swagger-parser": "^10.0.3",
+    "swagger-ui": "^5.17.14",
+    "tslib": "^2.3.0",
+    "yaml": "^2.4.2",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.18",
+    "@angular/cli": "^18.2.18",
+    "@angular/compiler-cli": "^18.2.13",
+    "@types/jasmine": "~5.1.0",
+    "@types/semver": "^7.7.0",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.4.2"
+  }
+}

@@ -1,0 +1,98 @@
+// Import Bootstrap styles
+// Custom primary and secondary colors
+
+@import "../src/colors.scss";
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$primary-light:   $custom-primary;
+$secondary-light: $custom-secondary;
+
+$primary-dark:   $custom-primary;
+$secondary-dark: $custom-secondary;
+
+$primary:       $custom-primary;
+$secondary:     $custom-secondary;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $custom-secondary;
+
+$link-color: $primary;
+$link-hover-color: darken($primary, 10%);
+$body-bg-dark: $custom-secondary;
+$border-width: 2px;
+
+:root {
+  --custom-primary: #{$custom-primary}; /* primary */
+  --custom-secondary: #{$custom-secondary}; /* secondary */
+}
+
+$theme-colors: (
+  "primary":    $primary-light,
+  "secondary":  $secondary-light,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
+);
+
+$theme-dark-colors: (
+  "primary":    $primary-dark,
+  "secondary":  $secondary-dark,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
+);
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+[data-bs-theme=light] {
+  --bs-body-color: $custom-secondary;
+
+  .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: $custom-primary
+  }
+}
+
+[data-bs-theme=dark] {
+  --bs-body-color: white;
+
+  a {
+    color: $custom-primary;
+  }
+
+  .navbar-brand {
+    color: var(--bs-navbar-brand-color);
+  }
+
+  .nav-link {
+    color: var(--bs-nav-link-color);
+  }
+
+  .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: $custom-primary
+  }
+}
+
+.full-height {
+  height: calc(100vh - 61px);
+}
+
+.sizable {
+  resize: horizontal;
+  overflow: auto;
+}
+
+navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: $custom-primary;
+}

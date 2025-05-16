@@ -1,0 +1,194 @@
+openapi: 3.0.3
+info:
+  title: Menu Item Management API
+  description: API for managing menu items as part of the Menu Management domain.
+  version: 1.0.0
+
+servers:
+  - url: https://api.coffeeshop.com
+    description: Production server
+  - url: https://staging.api.coffeeshop.com
+    description: Staging server
+
+paths:
+  /api/menu/items:
+    get:
+      summary: Get all menu items
+      description: Retrieves a list of all current menu items.
+      responses:
+        '200':
+          description: A list of menu items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MenuItem'
+
+    post:
+      summary: Add a new menu item
+      description: Adds a new item to the coffee shop menu.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewMenuItem'
+      responses:
+        '201':
+          description: Menu item successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+
+  /api/menu/items/{itemId}:
+    get:
+      summary: Get menu item details
+      description: Retrieves detailed information about a specific menu item.
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "item_001"
+      responses:
+        '200':
+          description: Menu item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+
+    patch:
+      summary: Update a menu item
+      description: Updates information such as name, price, category, or availability of a menu item.
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "item_001"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMenuItem'
+      responses:
+        '200':
+          description: Menu item successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+
+    delete:
+      summary: Remove a menu item
+      description: Deletes a menu item from the system.
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "item_001"
+      responses:
+        '200':
+          description: Menu item successfully removed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Menu item removed"
+                  itemId:
+                    type: string
+                    example: "item_001"
+
+components:
+  schemas:
+    MenuItem:
+      type: object
+      properties:
+        itemId:
+          type: string
+          example: "item_001"
+        name:
+          type: string
+          example: "Cappuccino"
+        description:
+          type: string
+          example: "Espresso with steamed milk and foam"
+        category:
+          type: string
+          example: "beverages"
+        price:
+          type: number
+          format: float
+          example: 3.50
+        isAvailable:
+          type: boolean
+          example: true
+        isSeasonal:
+          type: boolean
+          example: false
+        tags:
+          type: array
+          items:
+            type: string
+          example: ["hot", "coffee"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    NewMenuItem:
+      type: object
+      required: [name, category, price]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        price:
+          type: number
+          format: float
+        isAvailable:
+          type: boolean
+          default: true
+        isSeasonal:
+          type: boolean
+        tags:
+          type: array
+          items:
+            type: string
+
+    UpdateMenuItem:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        price:
+          type: number
+          format: float
+        isAvailable:
+          type: boolean
+        isSeasonal:
+          type: boolean
+        tags:
+          type: array
+          items:
+            type: string

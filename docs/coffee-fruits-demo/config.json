@@ -1,0 +1,222 @@
+{
+  "license": "personal",
+  "website": {
+    "title": "Coffee & Fruits Demo Dev-Portal",
+    "copyright": "2023 Coffee & Fruits Demo. This is only a demo website!",
+    "logo": "/assets/coffee-fruits-demo/logo.png",
+    "favicon": "/favicon.ico",
+    "styles": "/assets/coffee-fruits-demo/custom-styles.css"
+  },
+  "navigation": {
+    "main": [
+      {
+        "label": "Getting started",
+        "path": "getting-started",
+        "src": "/assets/coffee-fruits-demo/content/getting-started.md"
+      },
+      {
+        "label": "Contact",
+        "path": "contact",
+        "src": "/assets/coffee-fruits-demo/content/contact.md",
+        "hidden": true
+      },
+      {
+        "label": "Imprint",
+        "path": "imprint",
+        "src": "/assets/coffee-fruits-demo/content/imprint.md",
+        "hidden": true
+      },
+      {
+        "label": "iOS SDK",
+        "path": "https://developer.apple.com/",
+        "external": true,
+        "blank": true
+      }
+    ],
+    "footer": [
+      {
+        "name": "Company",
+        "links": [
+          {
+            "name": "Imprint",
+            "url": "/imprint"
+          },
+          {
+            "name": "About Us",
+            "url": "/about"
+          },
+          {
+            "name": "Contact",
+            "url": "/contact"
+          }
+        ]
+      },
+      {
+        "name": "Resources",
+        "links": [
+          {
+            "name": "FAQs",
+            "url": "/faqs"
+          },
+          {
+            "name": "Support",
+            "url": "https://github.com/features/issues",
+            "blank": true
+          }
+        ]
+      }
+    ]
+  },
+  "products": [
+    {
+      "name": "CoffeeShop",
+      "description": "/assets/coffee-fruits-demo/content/coffee-shop-description.md",
+      "domains": [
+        {
+          "name": "Barista Workflow",
+          "description": "/assets/coffee-fruits-demo/content/barista-workflow-description.md",
+          "services": [
+            {
+              "name": "Order Queue Management",
+              "content": [
+                {
+                  "version": "1.0.0",
+                  "displayVersion": "1.0.0",
+                  "preview": false,
+                  "openAPI": "/assets/coffee-fruits-demo/content/order-queue-management-openapi.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/order-queue-management-journey.md"
+                },
+                {
+                  "version": "1.1.0",
+                  "displayVersion": "1.1.0",
+                  "preview": false,
+                  "openAPI": "/assets/coffee-fruits-demo/content/order-queue-management-openapi.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/order-queue-management-journey.md"
+                },
+                {
+                  "version": "2.0.0",
+                  "displayVersion": "2.0.0 preview",
+                  "preview": true,
+                  "openAPI": "/assets/coffee-fruits-demo/content/order-queue-management-openapi_v2.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/order-queue-management-journey_v2.md"
+                }
+              ]
+            },
+            {
+              "name": "Task Assignment",
+              "content": [
+                {
+                  "version": "1.0.0",
+                  "displayVersion": "1.0.0",
+                  "preview": false,
+                  "openAPI": "/assets/coffee-fruits-demo/content/task-assignment-openapi.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/task-assigment-description.md"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Menu Management",
+          "description": "/assets/coffee-fruits-demo/content/menu-management-description.md",
+          "services": [
+            {
+              "name": "Menu Item Management",
+              "content": [
+                {
+                  "version": "1.0.0",
+                  "displayVersion": "1.0.0",
+                  "preview": false,
+                  "openAPI": "/assets/coffee-fruits-demo/content/menu-item-management-openapi.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/menu-item-management-description.md"
+                }
+              ]
+            },
+            {
+              "name": "Category Management",
+              "content": [
+                {
+                  "version": "1.0.0",
+                  "displayVersion": "1.0.0",
+                  "preview": false,
+                  "openAPI": "/assets/coffee-fruits-demo/content/category-management.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/category-management.md"
+                }
+              ]
+            },
+            {
+              "name": "Allergen and Nutrition Information",
+              "content": [
+                {
+                  "version": "1.0.0",
+                  "displayVersion": "1.0.0",
+                  "preview": false,
+                  "openAPI": "/assets/coffee-fruits-demo/content/allergen-nutrition-information.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/allergen-nutrition-information.md"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FruitStore",
+      "description": "/assets/coffee-fruits-demo/content/fruit-store-description.md",
+      "domains": [
+        {
+          "name": "Offical API",
+          "description": "/assets/coffee-fruits-demo/content/fruitstore-official.md",
+          "services": [
+            {
+            "name": "Public API",
+            "content": [
+                {
+                  "version": "1.0.0",
+                  "displayVersion": "1.0.0",
+                  "preview": false,
+                  "openAPI": "/assets/coffee-fruits-demo/content/fruitstore-public.yaml",
+                  "description": "/assets/coffee-fruits-demo/content/fruitstore-public.md"
+                }
+              ]
+            },
+            {
+              "name": "Partner API",
+              "content": [
+                  {
+                    "version": "1.0.0",
+                    "displayVersion": "1.0.0",
+                    "preview": false,
+                    "openAPI": "/assets/coffee-fruits-demo/content/fruitstore-partner.yaml",
+                    "description": "/assets/coffee-fruits-demo/content/fruitstore-partner.md"
+                  }
+                ]
+              }
+          ]
+        }
+      ]
+    }
+  ],
+  "home": {
+    "title": "Welcome to the Coffee & Fruits Demo Dev-Portal",
+    "description": "Your central hub for exploring APIs, documentation, and tools to build and integrate your applications seamlessly.",
+    "logo": "/assets/coffee-fruits-demo/content/teaser.png"
+  },
+  "about": {
+    "companyName": "Coffee & Fruits GmbH",
+    "companyAddress": {
+      "streetAddress": "Musterstraße 1",
+      "locality": "Munich",
+      "region": "Bavaria",
+      "postalCode": "80800",
+      "country": "Germany",
+      "countryCode": "DE"
+    },
+    "companyEmail": "your.email@example.com",
+    "companyPhone": "+123 456 7890",
+    "companyRegistrationNumber": "Your Company Registration Number",
+    "companyTaxId": "123456789",
+    "representative": "Apple Cider",
+    "representativePosition": "CEO"
+  }
+}

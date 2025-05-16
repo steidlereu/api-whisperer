@@ -1,0 +1,11 @@
+@import "../../colors.scss";
+
+.custom-nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--bs-body-bg);
+    z-index: 1000;
+    border-bottom: 5px solid var(--custom-primary) !important;
+}

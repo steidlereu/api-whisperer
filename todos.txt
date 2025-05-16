@@ -1,0 +1,8 @@
+
+- Coffee Demo fertig stellen
+- Docs Seite
+- Bugs
+- Favicon setzen
+- Test & Readme update
+- Git histroy cleanup
+- Versionierung & go-live

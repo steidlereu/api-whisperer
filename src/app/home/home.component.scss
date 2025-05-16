@@ -1,0 +1,13 @@
+.teaser {
+    background: var(--bs-gray-dark);
+}
+
+.title {
+    &::after {content: '';
+        display: block;
+        width: 300px;
+        height: 5px;
+        background-color: var(--custom-primary);
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,50 @@
+<div>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar custom-nav">
+      <div class="container">
+        <a *ngIf="logo" class="navbar-brand" href="#">
+          <img src="{{logo}}" alt="{{title}}" width="50">
+        </a>
+        <a class="navbar-brand" href="#">
+          {{title}}
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/explore" routerLinkActive="active">Explore</a>
+            </li>
+            @for (navigationItem of navigation ; track navigationItem) {
+              <li class="nav-item" *ngIf="navigationItem.external && !navigationItem.hidden">
+                <a class="nav-link" [href]="navigationItem.path" [target]="navigationItem.blank ? '_blank' : '_self'">{{ navigationItem.label }}</a>
+              </li>
+              <li class="nav-item" *ngIf="!navigationItem.external && !navigationItem.hidden">
+                <a class="nav-link" [routerLink]="navigationItem.path" routerLinkActive="active">{{ navigationItem.label }}</a>
+              </li>
+            }
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <!-- <span class="me-3">logged in as <strong>Max Mustermann</strong></span> -->
+            <app-theme-toggle></app-theme-toggle>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

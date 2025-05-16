@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: Allergen and Nutrition Information API
+  description: API for managing allergen and nutritional data linked to menu items, as part of the Menu Management domain.
+  version: 1.0.0
+
+servers:
+  - url: https://api.coffeeshop.com
+    description: Production server
+  - url: https://staging.api.coffeeshop.com
+    description: Staging server
+
+paths:
+  /api/menu/nutrition/{itemId}:
+    get:
+      summary: Get nutrition and allergen information for a menu item
+      description: Retrieves nutritional values and known allergens for a specific menu item.
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "item_001"
+      responses:
+        '200':
+          description: Nutrition and allergen details returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NutritionProfile'
+
+    put:
+      summary: Add or update nutrition and allergen information for a menu item
+      description: Sets or modifies the nutritional and allergen data for a menu item.
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "item_001"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertNutritionProfile'
+      responses:
+        '200':
+          description: Nutrition profile updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NutritionProfile'
+
+    delete:
+      summary: Remove nutrition and allergen info for a menu item
+      description: Deletes the nutrition and allergen profile of a given item.
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Profile successfully removed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Nutrition profile removed"
+                  itemId:
+                    type: string
+                    example: "item_001"
+
+components:
+  schemas:
+    NutritionProfile:
+      type: object
+      properties:
+        itemId:
+          type: string
+          example: "item_001"
+        calories:
+          type: integer
+          example: 150
+        sugarGrams:
+          type: number
+          format: float
+          example: 12.5
+        fatGrams:
+          type: number
+          format: float
+          example: 4.2
+        proteinGrams:
+          type: number
+          format: float
+          example: 3.8
+        allergens:
+          type: array
+          items:
+            type: string
+          example: ["milk", "soy"]
+        isVegan:
+          type: boolean
+          example: false
+        isGlutenFree:
+          type: boolean
+          example: true
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2025-05-04T12:00:00Z"
+
+    UpsertNutritionProfile:
+      type: object
+      required: [calories, sugarGrams, fatGrams, proteinGrams, allergens]
+      properties:
+        calories:
+          type: integer
+          example: 150
+        sugarGrams:
+          type: number
+          format: float
+          example: 12.5
+        fatGrams:
+          type: number
+          format: float
+          example: 4.2
+        proteinGrams:
+          type: number
+          format: float
+          example: 3.8
+        allergens:
+          type: array
+          items:
+            type: string
+        isVegan:
+          type: boolean
+        isGlutenFree:
+          type: boolean

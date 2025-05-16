@@ -1,0 +1,24 @@
+<div class="border-bottom margin-row">
+    <p class="lead"><!--<i class="fa-solid fa-folder-tree"></i>--> Overview</p>
+</div>
+<!--
+<div class="border-bottom text-end margin-row">
+    <p><button type="button" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> create</button></p>
+</div>-->
+<div class="border-bottom margin-row">
+
+  @for (product of products ; track product.name) {
+    <app-collection [name]="product.name" [product]="product" (valueEmitted)="receiveValue($event)"></app-collection>
+  }
+
+  <!-- <div class="collection">
+        <div class="heade row">
+            <div class="col-auto text-start collection-name">
+                <p tooltip="Hello World" placement="top"><i class="fa-regular fa-folder-closed"></i> Hello World</p>
+            </div>
+            <div class="col text-end collection-options">
+                <p><i class="fa-solid fa-ellipsis-vertical"></i></p>
+            </div>
+        </div>
+    </div> -->
+</div>

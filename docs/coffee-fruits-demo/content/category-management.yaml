@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  title: Category Management API
+  description: API for managing menu item categories as part of the Menu Management domain.
+  version: 1.0.0
+
+servers:
+  - url: https://api.coffeeshop.com
+    description: Production server
+  - url: https://staging.api.coffeeshop.com
+    description: Staging server
+
+paths:
+  /api/menu/categories:
+    get:
+      summary: Get all menu categories
+      description: Retrieves a list of all available menu categories.
+      responses:
+        '200':
+          description: A list of menu categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+
+    post:
+      summary: Create a new menu category
+      description: Adds a new category to the menu system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCategory'
+      responses:
+        '201':
+          description: Category successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+  /api/menu/categories/{categoryId}:
+    get:
+      summary: Get category details
+      description: Retrieves information about a specific menu category.
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "cat_beverages"
+      responses:
+        '200':
+          description: Category details retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+    patch:
+      summary: Update a menu category
+      description: Updates the name or description of a category.
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "cat_beverages"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCategory'
+      responses:
+        '200':
+          description: Category successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+
+    delete:
+      summary: Delete a menu category
+      description: Deletes a category from the menu system. Items under this category should be handled appropriately.
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "cat_seasonal"
+      responses:
+        '200':
+          description: Category successfully deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Category deleted"
+                  categoryId:
+                    type: string
+                    example: "cat_seasonal"
+
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        categoryId:
+          type: string
+          example: "cat_beverages"
+        name:
+          type: string
+          example: "Beverages"
+        description:
+          type: string
+          example: "Hot and cold drinks including coffee, tea, and juices"
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    NewCategory:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          example: "Seasonal"
+        description:
+          type: string
+          example: "Limited-time seasonal offerings"
+
+    UpdateCategory:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Updated Category Name"
+        description:
+          type: string
+          example: "Updated description for the category"

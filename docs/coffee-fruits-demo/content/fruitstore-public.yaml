@@ -1,0 +1,127 @@
+openapi: 3.0.3
+info:
+  title: FruitStore Public API
+  description: API for browsing and purchasing fruits from the FruitStore.
+  version: 1.0.0
+
+servers:
+  - url: https://api.fruitstore.com/v1
+    description: Production server
+
+paths:
+  /fruits:
+    get:
+      summary: List all available fruits
+      responses:
+        '200':
+          description: A list of fruits
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Fruit'
+    post:
+      summary: Add a new fruit (restricted access)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FruitInput'
+      responses:
+        '201':
+          description: Fruit created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fruit'
+
+  /fruits/{fruitId}:
+    get:
+      summary: Get details of a specific fruit
+      parameters:
+        - name: fruitId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Fruit details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fruit'
+        '404':
+          description: Fruit not found
+
+  /purchase:
+    post:
+      summary: Purchase a fruit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseRequest'
+      responses:
+        '200':
+          description: Purchase confirmed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseResponse'
+        '400':
+          description: Invalid request
+
+components:
+  schemas:
+    Fruit:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        price:
+          type: number
+          format: float
+        inStock:
+          type: boolean
+
+    FruitInput:
+      type: object
+      required:
+        - name
+        - price
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+          format: float
+        inStock:
+          type: boolean
+
+    PurchaseRequest:
+      type: object
+      required:
+        - fruitId
+        - quantity
+      properties:
+        fruitId:
+          type: string
+        quantity:
+          type: integer
+          minimum: 1
+
+    PurchaseResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        orderId:
+          type: string

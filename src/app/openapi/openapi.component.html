@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-auto sizable">
+        <app-openapi-workspace></app-openapi-workspace>
+    </div>
+    <div class="col border-start">
+      <div class="container mt-5">
+        <div *ngIf="activeProduct !== null" class="row">
+          <div class="col mb-5">
+            <h1>{{activeProduct.name}}</h1>
+            <markdown [src]="activeProduct.description"></markdown>
+          </div>
+        </div>
+        <div *ngIf="activeDomain !== null" class="row">
+          <div class="col mb-5">
+            <h2>{{activeDomain.name}}</h2>
+            <markdown [src]="activeDomain.description"></markdown>
+          </div>
+        </div>
+        <div *ngIf="activeService !== null" class="row">
+          <div class="col mb-5 d-flex justify-content-between align-items-center">
+            <h3>{{activeService.name}}</h3>
+            <div class="btn-group" dropdown>
+              <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle"
+                      aria-controls="dropdown-basic">{{activeServiceContent?.displayVersion}}<span class="caret"></span>
+              </button>
+              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                  role="menu" aria-labelledby="button-basic">
+                @for (serviceContent of sortServiceContent(activeService.content) ; track serviceContent.version) {
+                  <li (click)="onDropdownChange(serviceContent)" [attr.data-version-raw-id]="serviceContent.version" role="menuitem"><a class="dropdown-item" href="#">{{serviceContent.displayVersion}}</a></li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="activeService !== null" class="row">
+          <tabset [justified]="true">
+            <tab heading="Swagger UI">
+              <div class="col border-start border-end">
+                <app-openapi-swagger-ui [openAPI]="activeServiceContent?.openAPI"></app-openapi-swagger-ui>
+              </div>
+            </tab>
+            <tab heading="OpenAPI" (selectTab)="onSelect($event)">
+              <div class="col border-start border-end">
+                <app-openapi-yaml-editor [openAPI]="activeServiceContent?.openAPI"></app-openapi-yaml-editor>
+              </div>
+            </tab>
+            <tab heading="Description">
+              <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
+                <markdown [src]="activeServiceContent?.description"></markdown>
+              </div>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+</div>

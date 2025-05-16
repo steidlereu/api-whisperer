@@ -1,0 +1,101 @@
+{
+  "license": "personal",
+  "website": {
+    "title": "API Whisperer - Open Source developer portal",
+    "copyright": "© 2025 Steidler IT-Consulting. All rights reserved.",
+    "logo": "/assets/api-whisperer/logo.png",
+    "favicon": "/favicon.ico",
+    "styles": "/assets/api-whisperer/custom-styles.css"
+  },
+  "navigation": {
+    "main": [
+      {
+        "label": "Privacy Policy",
+        "path": "privacy-policy",
+        "src": "/assets/api-whisperer/content/privacy-policy.md",
+        "hidden": true
+      },
+      {
+        "label": "Imprint",
+        "path": "imprint",
+        "src": "/assets/api-whisperer/content/imprint.md",
+        "hidden": true
+      }
+    ],
+    "footer": [
+      {
+        "name": "Company",
+        "links": [
+          {
+            "name": "Privacy Policy",
+            "url": "/privacy-policy"
+          },
+          {
+            "name": "Imprint",
+            "url": "/imprint"
+          }
+        ]
+      },
+      {
+        "name": "Resources",
+        "links": [
+          {
+            "name": "Github",
+            "url": "https://github.com/steidlereu/api-whisperer",
+            "blank": true
+          }
+        ]
+      }
+    ]
+  },
+  "products": [
+    {
+      "name": "Docs",
+      "description": "/assets/api-whisperer/content/docs.md",
+      "domains": [
+        {
+          "name": "Installation Guide",
+          "description": "/assets/api-whisperer/content/installation.md"
+        },
+        {
+          "name": "Configuration",
+          "description": "/assets/api-whisperer/content/configuration.md"
+        },
+        {
+          "name": "Deployment",
+          "description": "/assets/api-whisperer/content/deployment.md"
+        },
+        {
+          "name": "Building from Source",
+          "description": "/assets/api-whisperer/content/from-source.md"
+        },
+        {
+          "name": "License",
+          "description": "/assets/api-whisperer/content/license.md"
+        }
+      ]
+    }
+  ],
+  "home": {
+    "title": "Welcome to API Whisperer - a Open Source developer portal",
+    "description": "API Whisperer is an open-source developer portal and API portal designed to help developers explore APIs.",
+    "logo": "/assets/api-whisperer/content/teaser.png"
+  },
+  "about": {
+    "companyName": "Steidler IT-Consulting",
+    "companyAddress": {
+      "streetAddress": "Böhmerwaldstr. 22a",
+      "locality": "Markt Schwaben",
+      "region": "Bavaria",
+      "postalCode": "85570",
+      "country": "Germany",
+      "countryCode": "DE"
+    },
+    "companyEmail": "info@steidler.eu",
+    "companyPhone": "",
+    "companyRegistrationNumber": "",
+    "companyTaxId": "",
+    "representative": "Felix Steidler",
+    "representativePosition": "Managing Director"
+  }
+}

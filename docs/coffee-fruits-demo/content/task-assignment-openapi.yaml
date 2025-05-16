@@ -1,0 +1,199 @@
+openapi: 3.0.3
+info:
+  title: Task Assignment API
+  description: API for managing task assignments as part of the Barista Workflow domain.
+  version: 1.0.0
+servers:
+  - url: https://api.coffeeshop.com
+    description: Production server
+  - url: https://staging.api.coffeeshop.com
+    description: Staging server
+
+paths:
+  /api/tasks:
+    post:
+      summary: Assign a new task to a barista
+      description: Creates and assigns a task to a specific barista for an order.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - taskId
+                - orderId
+                - items
+                - assignedTo
+                - priority
+              properties:
+                taskId:
+                  type: string
+                  example: "task_12345"
+                orderId:
+                  type: string
+                  example: "order_12345"
+                items:
+                  type: array
+                  items:
+                    type: string
+                  example: ["espresso", "latte"]
+                assignedTo:
+                  type: string
+                  description: Barista ID
+                  example: "barista_001"
+                priority:
+                  type: string
+                  enum: [low, medium, high]
+                  example: "medium"
+      responses:
+        '201':
+          description: Task successfully assigned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Task assigned to barista"
+                  taskId:
+                    type: string
+                    example: "task_12345"
+
+  /api/tasks/queue:
+    get:
+      summary: Retrieve all barista tasks
+      description: Provides a list of all current tasks assigned to baristas.
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BaristaTask'
+
+  /api/tasks/{taskId}/status:
+    patch:
+      summary: Update the status of a task
+      description: Changes the status of a specific task in the workflow.
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "task_12345"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  enum: [pending, in_progress, ready, completed]
+                  example: "in_progress"
+      responses:
+        '200':
+          description: Task status updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Task status updated"
+                  taskId:
+                    type: string
+                    example: "task_12345"
+                  newStatus:
+                    type: string
+                    example: "in_progress"
+
+  /api/tasks/{taskId}:
+    get:
+      summary: Retrieve task details
+      description: Provides detailed information about a specific barista task.
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "task_12345"
+      responses:
+        '200':
+          description: Task details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaristaTask'
+
+    delete:
+      summary: Remove a completed or canceled task
+      description: Removes a task from the system after it's completed or canceled.
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "task_12345"
+      responses:
+        '200':
+          description: Task successfully removed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Task removed"
+                  taskId:
+                    type: string
+                    example: "task_12345"
+
+components:
+  schemas:
+    BaristaTask:
+      type: object
+      properties:
+        taskId:
+          type: string
+          example: "task_12345"
+        orderId:
+          type: string
+          example: "order_12345"
+        items:
+          type: array
+          items:
+            type: string
+          example: ["espresso", "latte"]
+        assignedTo:
+          type: string
+          description: Barista ID
+          example: "barista_001"
+        status:
+          type: string
+          enum: [pending, in_progress, ready, completed]
+          example: "in_progress"
+        priority:
+          type: string
+          enum: [low, medium, high]
+          example: "medium"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2025-05-04T10:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          example: "2025-05-04T10:10:00Z"

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api-whisperer-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      # Mount demo into the container
+      - ./docs/api-whisperer:/app/assets/api-whisperer:ro
+      - ./docs/api-whisperer/config.json:/app/assets/config.json:ro
