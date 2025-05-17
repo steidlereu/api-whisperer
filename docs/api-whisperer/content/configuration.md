@@ -1,10 +1,18 @@
 The `config.json` file in the `app/assets/` directory is the central configuration entrypoint for the API Whisperer application. It defines the structure, content, and metadata for the developer portal website. Below is a detailed explanation of the configuration structure based on the `Config` interface and its sub-objects.
 
+**Content**
 
+- [General structure](#general-structure)
+- [Detailed structure](#detailed-structure)
+  - [Website](#-code-website-code-)
+  - [Navigation](#-code-navigation-code-)
+  - [Product](#-code-product-code-)
+  - [Home](#-code-product-code-)
+  - [About](#-code-about-code-)
 
 ---
 
-### General JSON structure
+### General structure
 
 The config.json file contains the following top-level properties:
 
@@ -30,7 +38,7 @@ The config.json file contains the following top-level properties:
 
 ---
 
-### Detailed Sections
+### Detailed structure
 
 #### `Website`
 
@@ -153,6 +161,8 @@ The `products` section lists the products offered on the website.
 ]
 ```
 
+---
+
 ##### `Product`
 
 ⚠️ A product is single, closed unit you want to describe in your developer portal.
@@ -162,6 +172,8 @@ The `products` section lists the products offered on the website.
 | `name`         | `string`   | Unique name of the product.                   |
 | `description`  | `string`   | Path to the description file of the product. Must be a [Markdown](https://daringfireball.net/projects/markdown/) file.         |
 | `domains`      | `Domain[]` | List of domains associated with the product.  |
+
+---
 
 ##### `Domain`
 
@@ -173,6 +185,8 @@ The `products` section lists the products offered on the website.
 | `description`  | `string`     | Path to the description file of the domain. Must be a [Markdown](https://daringfireball.net/projects/markdown/) file.                    |
 | `services`     | `Service[]`  | List of services offered within the domain.   |
 
+---
+
 ##### `Service`
 
 ⚠️ A service is a single API in your developer portal documentation. Each service contains excatly one OpenAPI specification. The service object supports different versions of your service / API.
@@ -181,6 +195,8 @@ The `products` section lists the products offered on the website.
 |----------------|--------------|-----------------------------------------------|
 | `name`         | `string`     | Unique name of the service.                          |
 | `content`      | `Content[]`  | List of different versions for the service.        |
+
+---
 
 ##### `Content`
 

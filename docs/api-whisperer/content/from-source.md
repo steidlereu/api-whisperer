@@ -1,5 +1,14 @@
 This project is built with [Angular CLI](https://github.com/angular/angular-cli) and is designed to be easily extendable and configurable.
 
+**Content**
+
+- [Prerequisites](#-prerequisites)
+- [Building the Application](#-building-the-application)
+- [Angular Environment Configuration](#-angular-environment-configuration)
+- [Running a Development Server](#-running-a-development-server)
+- [Angular Deployment Notes](#-angular-deployment-notes)
+- [Code Scaffolding](#-code-scaffolding)
+
 ---
 
 ### 🧱 Prerequisites
