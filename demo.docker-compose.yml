@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   api-whisperer-app:
-    image: api-whisperer-app:latest
     build:
       context: .
       dockerfile: Dockerfile

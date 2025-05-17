@@ -96,3 +96,8 @@ $theme-dark-colors: (
 navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
   color: $custom-primary;
 }
+
+h1 {
+  color: $custom-primary;
+  padding-bottom: 15px;
+}

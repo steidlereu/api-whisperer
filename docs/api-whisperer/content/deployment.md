@@ -1,5 +1,10 @@
 This guide describes how to deploy the API Whisperer application using either traditional web hosting or container-based environments.
 
+**Content**
+
+- [Web Hosting](#-web-hosting)
+- [Docker Deployment](#-docker-deployment)
+
 ---
 
 ### 🌐 Web Hosting

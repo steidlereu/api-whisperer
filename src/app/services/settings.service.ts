@@ -14,11 +14,13 @@ import { Explorer } from '../models/Explorer';
 })
 export class SettingsService {
 
+  readonly version = '1.1.0';
+
   readonly depthProduct = 1;
   readonly depthDomain = 2;
   readonly depthServices = 3;
 
-  private storageKey = 'app_settings';
+  private storageKey = 'app_settings_v' + this.version;
   private ttl = 60 * 60; // 1 hour in seconds
   private storageChangeSubject = new Subject<{ key: string; value: string | null }>();
   public storageChange$ = this.storageChangeSubject.asObservable();
@@ -38,7 +40,7 @@ export class SettingsService {
 
   // Load settings from localStorage
   loadSettings(): Settings {
-    
+
     const now = new Date();
     const settings = localStorage.getItem(this.storageKey);
 
@@ -105,12 +107,9 @@ export class SettingsService {
     const paramProduct = params['product'];
     const paramDomain = params['domain'];
     const paramService = params['service'];
-    console.log('paramService');
-    console.log(paramService);
-    console.log(paramService + '/' + paramDomain + '/' + paramService)
 
     for (const element of elements) {
-  
+
       if (element.name === paramProduct) {
         element.active = true;
       }
@@ -120,11 +119,8 @@ export class SettingsService {
       else if (element.name === paramProduct + '/' + paramDomain + '/' + paramService) {
         element.active = true;
       }
-      
-    }
 
-    console.log("Elements???:");
-    console.log(elements);
+    }
 
     return {
       elements: elements
@@ -164,7 +160,7 @@ export class SettingsService {
   getActiveDomain(product: Product): Domain | null {
 
     for (const explorerElement of this.getExplorer().elements) {
-    
+
       if (this.countExplorerElementDeep(explorerElement.name) === this.depthDomain) {
         if (explorerElement.active) {
           return product?.domains?.find((domain) => product.name + '/' + domain.name === explorerElement.name) as Domain;

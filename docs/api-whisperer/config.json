@@ -1,8 +1,8 @@
 {
   "license": "personal",
   "website": {
-    "title": "API Whisperer - Open Source developer portal",
-    "copyright": "© 2025 Steidler IT-Consulting. All rights reserved.",
+    "title": "API Whisperer - Developer Portal Software",
+    "copyright": "2025 Steidler IT-Consulting. All rights reserved.",
     "logo": "/assets/api-whisperer/logo.png",
     "favicon": "/favicon.ico",
     "styles": "/assets/api-whisperer/custom-styles.css"
@@ -50,7 +50,7 @@
   },
   "products": [
     {
-      "name": "Docs",
+      "name": "API Whisperer - Docs",
       "description": "/assets/api-whisperer/content/docs.md",
       "domains": [
         {
@@ -77,8 +77,8 @@
     }
   ],
   "home": {
-    "title": "Welcome to API Whisperer - a Open Source developer portal",
-    "description": "API Whisperer is an open-source developer portal and API portal designed to help developers explore APIs.",
+    "title": "Welcome to API Whisperer - Developer Portal Software",
+    "description": "API Whisperer is an open-source Developer Portal and API Portal software designed to help developers explore APIs.",
     "logo": "/assets/api-whisperer/content/teaser.png"
   },
   "about": {
