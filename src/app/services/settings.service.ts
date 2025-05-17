@@ -14,11 +14,13 @@ import { Explorer } from '../models/Explorer';
 })
 export class SettingsService {
 
+  readonly version = '1.1.0';
+
   readonly depthProduct = 1;
   readonly depthDomain = 2;
   readonly depthServices = 3;
 
-  private storageKey = 'app_settings';
+  private storageKey = 'app_settings_v' + this.version;
   private ttl = 60 * 60; // 1 hour in seconds
   private storageChangeSubject = new Subject<{ key: string; value: string | null }>();
   public storageChange$ = this.storageChangeSubject.asObservable();

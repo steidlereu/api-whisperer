@@ -72,9 +72,13 @@ export class OpenapiComponent implements OnInit {
   highlightHeadings() {
     this.markdownService.renderer.heading = ({ tokens, depth }) => {
       const text = Parser.parseInline(tokens);
-      const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+      const escapedText = this.escapeId(text);
       return '<h' + depth + ' id="' + escapedText + '">' + text + '</h' + depth + '>';
-    };
+    }
+  }
+
+  escapeId(text: string): string {
+    return text.toLowerCase().replace(/[^\w]+/g, '-');
   }
 
   sortServiceContent(content: Content[] | undefined): Content[] {

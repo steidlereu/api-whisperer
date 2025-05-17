@@ -6,19 +6,19 @@
       <div class="container mt-5">
         <div *ngIf="activeProduct !== null" class="row">
           <div class="col mb-5">
-            <h1>{{activeProduct.name}}</h1>
+            <h1 [id]="escapeId(activeProduct.name)">{{activeProduct.name}}</h1>
             <markdown [disableSanitizer]="true" [src]="activeProduct.description"></markdown>
           </div>
         </div>
         <div *ngIf="activeDomain !== null" class="row">
           <div class="col mb-5">
-            <h2>{{activeDomain.name}}</h2>
+            <h2 [id]="escapeId(activeDomain.name)">{{activeDomain.name}}</h2>
             <markdown [disableSanitizer]="true" [src]="activeDomain.description"></markdown>
           </div>
         </div>
         <div *ngIf="activeService !== null" class="row">
           <div class="col mb-5 d-flex justify-content-between align-items-center">
-            <h3>{{activeService.name}}</h3>
+            <h3 [id]="escapeId(activeService.name)">{{activeService.name}}</h3>
             <div class="btn-group" dropdown>
               <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle"
                       aria-controls="dropdown-basic">{{activeServiceContent?.displayVersion}}<span class="caret"></span>
