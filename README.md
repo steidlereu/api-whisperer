@@ -1,4 +1,4 @@
-<h1 style="text-align: center">API Whisperer - Open Source developer portal</h1>
+<h1 style="text-align: center">API Whisperer - Open Source Developer Portal Software</h1>
 
 ![Static Badge](https://img.shields.io/badge/latest_release-v1.1.0-blue)
 ![Static Badge](https://img.shields.io/badge/status-stable-green)
@@ -8,7 +8,7 @@
   <br>
   <img src="/docs/api-whisperer/images/api-whisperer.png" alt="API Whisperer logo" width="100px"/>
   <br><br>
-  <em>API Whisperer is an open-source developer portal and API portal designed to help developers explore APIs, access documentation, and utilize tools for building and integrating applications. It provides a centralized platform for managing API documentation, developer tools, and resources.</em>
+  <em>API Whisperer is an open-source Developer Portal and API Portal software designed to help developers explore APIs, access documentation, and utilize tools for building and integrating applications. It provides a centralized platform for managing API documentation, developer tools, and resources.</em>
   <br>
 </p>
 

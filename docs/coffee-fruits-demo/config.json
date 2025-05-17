@@ -165,11 +165,11 @@
       "description": "/assets/coffee-fruits-demo/content/fruit-store-description.md",
       "domains": [
         {
-          "name": "Offical API",
+          "name": "FruitStore Official APIs – Overview",
           "description": "/assets/coffee-fruits-demo/content/fruitstore-official.md",
           "services": [
             {
-            "name": "Public API",
+            "name": "FruitStore Public API",
             "content": [
                 {
                   "version": "1.0.0",
@@ -181,7 +181,7 @@
               ]
             },
             {
-              "name": "Partner API",
+              "name": "FruitStore Partner API",
               "content": [
                   {
                     "version": "1.0.0",

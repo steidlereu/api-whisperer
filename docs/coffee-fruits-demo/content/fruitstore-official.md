@@ -1,5 +1,3 @@
-# 📘 FruitStore Official APIs – Overview
-
 FruitStore offers two official APIs to support a range of users, from public consumers to trusted business partners.
 
 ## 🔓 Public API
@@ -19,6 +17,3 @@ FruitStore offers two official APIs to support a range of users, from public con
   - Access sales and order history
   - Requires Bearer token authentication
 
----
-
-For full documentation and onboarding, visit [developer.fruitstore.com](https://developer.fruitstore.com) *(placeholder)*.
