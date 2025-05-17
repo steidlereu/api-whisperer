@@ -1,11 +1,10 @@
-import {APP_INITIALIZER, ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
+import {APP_INITIALIZER, ApplicationConfig, importProvidersFrom, isDevMode, SecurityContext} from '@angular/core';
 import { provideRouter, Router, Routes } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
-
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import {MarkdownModule} from "ngx-markdown";
+import {MarkdownModule, MARKED_OPTIONS, MarkedOptions, MarkedRenderer, provideMarkdown} from "ngx-markdown";
 import {ConfigService} from "./services/config.service";
 import { provideHttpClient } from '@angular/common/http';
 import { RoutingService } from './services/routing.service';
@@ -13,9 +12,8 @@ import { RoutingService } from './services/routing.service';
 export function initializeApp(configService: ConfigService, routingService: RoutingService, router: Router) {
   return async() => {
     await configService.loadConfig();
-    console.log('Dynamic Routes:', configService.getConfig());
     const dynamicRoutes = routingService.generateDynamicRoutes();
-    
+
     router.resetConfig([...routes, ...dynamicRoutes]);
   }
 }
@@ -35,8 +33,11 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAnimations(),
     provideHttpClient(),
+    provideMarkdown({
+      sanitize: SecurityContext.NONE
+    }),
     importProvidersFrom(
-      BsDropdownModule.forRoot(),  
+      BsDropdownModule.forRoot(),
       MarkdownModule.forRoot()
     ),
   ]

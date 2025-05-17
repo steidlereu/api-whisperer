@@ -103,9 +103,7 @@ export class YamlEditorComponent implements AfterViewInit, OnDestroy, OnChanges 
       const contentHeight = lineCount * lineHeight + padding;
 
       // Setze die neue Höhe
-      container.style.height = `${contentHeight}px`;
-
-      console.log(`Editor resizes to: ${container.clientWidth}x${contentHeight}`);
+      container.style.height = `${contentHeight}px`
 
       this.editor.layout({
         width: container.clientWidth,

@@ -1,5 +1,7 @@
 The `config.json` file in the `app/assets/` directory is the central configuration entrypoint for the API Whisperer application. It defines the structure, content, and metadata for the developer portal website. Below is a detailed explanation of the configuration structure based on the `Config` interface and its sub-objects.
 
+
+
 ---
 
 ### General JSON structure

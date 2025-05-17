@@ -50,7 +50,7 @@
   },
   "products": [
     {
-      "name": "Docs",
+      "name": "API Whisperer - Docs",
       "description": "/assets/api-whisperer/content/docs.md",
       "domains": [
         {

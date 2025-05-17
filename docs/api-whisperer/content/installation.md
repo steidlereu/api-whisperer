@@ -1,5 +1,13 @@
 This guide helps you install and set up your own developer portal using API Whisperer.
 
+**Content**
+
+- [Prerequisites](#-prerequisites)
+- [Create a New Project](#-create-a-new-project)
+- [Project Structure Overview](#-project-structure-overview)
+- [Customize Your Project](#-customize-your-project)
+- [Next Steps](#-next-steps)
+
 ---
 
 ### 🧱 Prerequisites
@@ -57,7 +65,7 @@ You can easily customize your developer portal by modifying:
   - `styles.css` – Custom CSS styling
   - Markdown content – Used for sections like **About**, **Home**, or **Product Descriptions**
 
-#### Using the `content/` Directory
+#### Using the content Directory
 
 To organize and manage your content files, create a `content` directory:
 

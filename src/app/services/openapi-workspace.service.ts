@@ -13,7 +13,6 @@ export class OpenapiWorkspaceService {
 
   constructor(private yamlLoaderService: YamlLoaderService) {
     this.activeFile.subscribe(async (content) => {
-      console.log(content);
       yaml.load(content)
     });
   }

@@ -7,13 +7,13 @@
         <div *ngIf="activeProduct !== null" class="row">
           <div class="col mb-5">
             <h1>{{activeProduct.name}}</h1>
-            <markdown [src]="activeProduct.description"></markdown>
+            <markdown [disableSanitizer]="true" [src]="activeProduct.description"></markdown>
           </div>
         </div>
         <div *ngIf="activeDomain !== null" class="row">
           <div class="col mb-5">
             <h2>{{activeDomain.name}}</h2>
-            <markdown [src]="activeDomain.description"></markdown>
+            <markdown [disableSanitizer]="true" [src]="activeDomain.description"></markdown>
           </div>
         </div>
         <div *ngIf="activeService !== null" class="row">
@@ -46,7 +46,7 @@
             </tab>
             <tab heading="Description">
               <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
-                <markdown [src]="activeServiceContent?.description"></markdown>
+                <markdown [disableSanitizer]="true" [src]="activeServiceContent?.description"></markdown>
               </div>
             </tab>
           </tabset>

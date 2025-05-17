@@ -1,5 +1,9 @@
 <h1 style="text-align: center">API Whisperer - Open Source developer portal</h1>
 
+![Static Badge](https://img.shields.io/badge/latest_release-v1.1.0-blue)
+![Static Badge](https://img.shields.io/badge/status-stable-green)
+![Static Badge](https://img.shields.io/badge/angular-v18-red)
+
 <p style="text-align: center">
   <br>
   <img src="/docs/api-whisperer/images/api-whisperer.png" alt="API Whisperer logo" width="100px"/>
