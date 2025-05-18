@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/latest_release-v1.1.0-blue)
+![Static Badge](https://img.shields.io/badge/latest_release-v1.2.0-blue)
 ![Static Badge](https://img.shields.io/badge/status-stable-green)
 ![Static Badge](https://img.shields.io/badge/angular-v18-red)
 

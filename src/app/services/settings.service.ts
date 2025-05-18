@@ -14,7 +14,7 @@ import { Explorer } from '../models/Explorer';
 })
 export class SettingsService {
 
-  readonly version = '1.1.0';
+  readonly version = '1.2.0';
 
   readonly depthProduct = 1;
   readonly depthDomain = 2;

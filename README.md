@@ -1,6 +1,6 @@
 <h1 style="text-align: center">API Whisperer - Open Source Developer Portal Software</h1>
 
-![Static Badge](https://img.shields.io/badge/latest_release-v1.1.0-blue)
+![Static Badge](https://img.shields.io/badge/latest_release-v1.2.0-blue)
 ![Static Badge](https://img.shields.io/badge/status-stable-green)
 ![Static Badge](https://img.shields.io/badge/angular-v18-red)
 

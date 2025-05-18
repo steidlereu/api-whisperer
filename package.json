@@ -1,6 +1,6 @@
 {
   "name": "api-whisperer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Free software to create a developer portal and API portal for exploring APIs, documentation, and tools.",
   "author": "Felix Steidler <info@steidler.eu>",
   "contributors": [
@@ -32,6 +32,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build": "ng build --configuration production",
     "build:prod": "ng build --configuration production",
     "build:dev": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",

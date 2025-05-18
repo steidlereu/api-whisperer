@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:b5fe428b-3ce9-410a-bed7-f642ce1560da",
+  "serialNumber": "urn:uuid:ba20ef7c-8de1-4fa7-932d-c2ed46ccc0a3",
   "metadata": {
-    "timestamp": "2025-04-26T22:52:38.816Z",
+    "timestamp": "2025-05-18T22:15:26.649Z",
     "tools": {
       "components": [
         {
@@ -82,17 +82,40 @@
     "component": {
       "type": "application",
       "name": "api-whisperer",
-      "version": "0.0.0",
-      "bom-ref": "api-whisperer@0.0.0",
-      "purl": "pkg:npm/api-whisperer@0.0.0",
+      "version": "1.2.0",
+      "bom-ref": "api-whisperer@1.2.0",
+      "author": "Felix Steidler",
+      "description": "Free software to create a developer portal and API portal for exploring APIs, documentation, and tools.",
+      "licenses": [
+        {
+          "license": {
+            "name": "SEE LICENSE IN LICENSE.txt",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/api-whisperer@1.2.0?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fsteidlereu%2Fapi-whisperer.git",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/steidlereu/api-whisperer.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/steidlereu/api-whisperer#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/steidlereu/api-whisperer/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ],
       "properties": [
         {
           "name": "cdx:npm:package:path",
           "value": ""
-        },
-        {
-          "name": "cdx:npm:package:private",
-          "value": "true"
         }
       ]
     }
@@ -5211,11 +5234,11 @@
         },
         {
           "type": "library",
-          "name": "linux-x64",
+          "name": "darwin-arm64",
           "group": "@esbuild",
           "version": "0.21.5",
-          "bom-ref": "vite@5.4.18|@esbuild/linux-x64@0.21.5",
-          "description": "The Linux 64-bit binary for esbuild, a JavaScript bundler.",
+          "bom-ref": "vite@5.4.18|@esbuild/darwin-arm64@0.21.5",
+          "description": "The macOS ARM 64-bit binary for esbuild, a JavaScript bundler.",
           "scope": "optional",
           "licenses": [
             {
@@ -5225,7 +5248,7 @@
               }
             }
           ],
-          "purl": "pkg:npm/%40esbuild/linux-x64@0.21.5",
+          "purl": "pkg:npm/%40esbuild/darwin-arm64@0.21.5",
           "externalReferences": [
             {
               "url": "git+https://github.com/evanw/esbuild.git",
@@ -5243,12 +5266,12 @@
               "comment": "as detected from PackageJson property \"bugs.url\""
             },
             {
-              "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.21.5.tgz",
+              "url": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.21.5.tgz",
               "type": "distribution",
               "hashes": [
                 {
                   "alg": "SHA-512",
-                  "content": "d6b61d4e9cafd378b2705d7e061cebcd024274eb803ad6aa1d35896425af8a3283d8de57bb44ed542f3ffb57da5aa70ff6204258e9a39a1a07f78747f360713d"
+                  "content": "0f0a97a99cae9390225967f751f2e2443279103778f7383a3bdc1c959ee450cbf659116be072a35e9ff9b7c259d7541b41f512ebf71108a1b0621b4d018f3c91"
                 }
               ],
               "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5257,7 +5280,7 @@
           "properties": [
             {
               "name": "cdx:npm:package:path",
-              "value": "node_modules/vite/node_modules/@esbuild/linux-x64"
+              "value": "node_modules/vite/node_modules/@esbuild/darwin-arm64"
             },
             {
               "name": "cdx:npm:package:development",
@@ -6323,12 +6346,12 @@
     },
     {
       "type": "library",
-      "name": "lmdb-linux-x64",
+      "name": "lmdb-darwin-arm64",
       "group": "@lmdb",
       "version": "3.0.13",
-      "bom-ref": "@lmdb/lmdb-linux-x64@3.0.13",
+      "bom-ref": "@lmdb/lmdb-darwin-arm64@3.0.13",
       "author": "Kris Zyp",
-      "description": "Platform specific binary for lmdb on linux OS with x64 architecture",
+      "description": "Platform specific binary for lmdb on darwin OS with arm64 architecture",
       "scope": "optional",
       "licenses": [
         {
@@ -6338,7 +6361,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40lmdb/lmdb-linux-x64@3.0.13",
+      "purl": "pkg:npm/%40lmdb/lmdb-darwin-arm64@3.0.13",
       "externalReferences": [
         {
           "url": "git+ssh://git@github.com/kriszyp/lmdb-js.git",
@@ -6356,12 +6379,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@lmdb/lmdb-linux-x64/-/lmdb-linux-x64-3.0.13.tgz",
+          "url": "https://registry.npmjs.org/@lmdb/lmdb-darwin-arm64/-/lmdb-darwin-arm64-3.0.13.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "bceb71bb4c42d122dd4365915e0f1081df13df66a4e123ea939ce322d46cceb264d8175e5ea7c6c4125b3fba3868ebd23d29924afe3a2ebd443f81d753cbfb2a"
+              "content": "ba228f07416fe961043998ebbaef5aeb09d6ffc8eb8f39596f15ec70c07c92e089d64ea41e97019eebda01672a85b23baea5f918ace2c1611d0fec22da034b7c"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6370,7 +6393,7 @@
       "properties": [
         {
           "name": "cdx:npm:package:path",
-          "value": "node_modules/@lmdb/lmdb-linux-x64"
+          "value": "node_modules/@lmdb/lmdb-darwin-arm64"
         },
         {
           "name": "cdx:npm:package:development",
@@ -6491,12 +6514,12 @@
     },
     {
       "type": "library",
-      "name": "msgpackr-extract-linux-x64",
+      "name": "msgpackr-extract-darwin-arm64",
       "group": "@msgpackr-extract",
       "version": "3.0.3",
-      "bom-ref": "@msgpackr-extract/msgpackr-extract-linux-x64@3.0.3",
+      "bom-ref": "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3",
       "author": "Kris Zyp",
-      "description": "Platform specific binary for msgpackr-extract on linux OS with x64 architecture",
+      "description": "Platform specific binary for msgpackr-extract on darwin OS with arm64 architecture",
       "scope": "optional",
       "licenses": [
         {
@@ -6506,7 +6529,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40msgpackr-extract/msgpackr-extract-linux-x64@3.0.3",
+      "purl": "pkg:npm/%40msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3",
       "externalReferences": [
         {
           "url": "git+ssh://git@github.com/kriszyp/msgpackr-extract.git",
@@ -6524,12 +6547,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@msgpackr-extract/msgpackr-extract-linux-x64/-/msgpackr-extract-linux-x64-3.0.3.tgz",
+          "url": "https://registry.npmjs.org/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-3.0.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "72fc0d7db3f4ee92947ead6e1fe4ba289edd4fd2bc58e13866201cb2b49eb3e518e7913fd232d873ebeaf833bb8e59aa45be73020804c4a9b41fb3bf08169eb2"
+              "content": "4191ed95581b01dcb6cc0a8d03d1aed54a48b88f17bec775bfc89ce81da96667859c570c5a23cb7d65e1ed3570e1e18467f0bd4c7dbcd4ac2156879050a6f28f"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6538,7 +6561,7 @@
       "properties": [
         {
           "name": "cdx:npm:package:path",
-          "value": "node_modules/@msgpackr-extract/msgpackr-extract-linux-x64"
+          "value": "node_modules/@msgpackr-extract/msgpackr-extract-darwin-arm64"
         },
         {
           "name": "cdx:npm:package:development",
@@ -7152,10 +7175,10 @@
     },
     {
       "type": "library",
-      "name": "rollup-linux-x64-gnu",
+      "name": "rollup-darwin-arm64",
       "group": "@rollup",
       "version": "4.22.4",
-      "bom-ref": "@rollup/rollup-linux-x64-gnu@4.22.4",
+      "bom-ref": "@rollup/rollup-darwin-arm64@4.22.4",
       "author": "Lukas Taegert-Atkinson",
       "description": "Native bindings for Rollup",
       "scope": "optional",
@@ -7167,7 +7190,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40rollup/rollup-linux-x64-gnu@4.22.4",
+      "purl": "pkg:npm/%40rollup/rollup-darwin-arm64@4.22.4",
       "externalReferences": [
         {
           "url": "git+https://github.com/rollup/rollup.git",
@@ -7185,12 +7208,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.22.4.tgz",
+          "url": "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.22.4.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "f3bbf4a25dac1fd184ddc2d02cd132d0afd1d29cf59ef83bea8f0ce6784c474f90f810462e76f7e4fd1f573e024311d85da00e844f0786591a65fb1d50e947c2"
+              "content": "c4c33d39106abbcd63c8c2820cff926438675f6404550cd3702e86d7c2a54d013358af2bfe8359b4ab99682707867b1ae9f11e3818a89e8ca5e49b006c4ff7e9"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -7199,64 +7222,7 @@
       "properties": [
         {
           "name": "cdx:npm:package:path",
-          "value": "node_modules/@rollup/rollup-linux-x64-gnu"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "rollup-linux-x64-musl",
-      "group": "@rollup",
-      "version": "4.22.4",
-      "bom-ref": "@rollup/rollup-linux-x64-musl@4.22.4",
-      "author": "Lukas Taegert-Atkinson",
-      "description": "Native bindings for Rollup",
-      "scope": "optional",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40rollup/rollup-linux-x64-musl@4.22.4",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/rollup/rollup.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://rollupjs.org/",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/rollup/rollup/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.22.4.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "515e8564c52078f0d9ac58eb346216cc3a3fbc005e6ee5c184912aac7c6b1a253a1e290fcb46772df76d72222db445107ee0dd0a7f1faa1ef088526308dc0efa"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@rollup/rollup-linux-x64-musl"
+          "value": "node_modules/@rollup/rollup-darwin-arm64"
         },
         {
           "name": "cdx:npm:package:development",
@@ -7312,6 +7278,61 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@types/estree"
+        },
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fsevents",
+      "version": "2.3.3",
+      "bom-ref": "fsevents@2.3.3",
+      "description": "Native Access to MacOS FSEvents",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fsevents@2.3.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/fsevents/fsevents.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/fsevents/fsevents",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/fsevents/fsevents/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e71a037d7f9f2fb7da0139da82658fa5b16dc21fd1efb5a630caaa1c64bae42defbc1d181eb805f81d58999df8e35b4c8f99fade4d36d765cda09c339617df43"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/fsevents"
         },
         {
           "name": "cdx:npm:package:development",
@@ -17992,11 +18013,11 @@
     },
     {
       "type": "library",
-      "name": "linux-x64",
+      "name": "darwin-arm64",
       "group": "@esbuild",
       "version": "0.23.0",
-      "bom-ref": "@esbuild/linux-x64@0.23.0",
-      "description": "The Linux 64-bit binary for esbuild, a JavaScript bundler.",
+      "bom-ref": "@esbuild/darwin-arm64@0.23.0",
+      "description": "The macOS ARM 64-bit binary for esbuild, a JavaScript bundler.",
       "scope": "optional",
       "licenses": [
         {
@@ -18006,7 +18027,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40esbuild/linux-x64@0.23.0",
+      "purl": "pkg:npm/%40esbuild/darwin-arm64@0.23.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/evanw/esbuild.git",
@@ -18024,12 +18045,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.23.0.tgz",
+          "url": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.23.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "6b7a4c421504264213800c3a7b46d603e17ebc5b427223235bf2cfb688fdf4c855b7e31f6fa6db2fd86edb099366035df7de2a4c0130f94febea4dea1d659a39"
+              "content": "60b9ed89efc8752df51f9e0e81d9febf9d0dba8585e410e411416988e0a155af549caa5fb60c33651ac8e09d77d844c88be0fc9fac61f48be2155dde5ddc5fa3"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -18038,7 +18059,7 @@
       "properties": [
         {
           "name": "cdx:npm:package:path",
-          "value": "node_modules/@esbuild/linux-x64"
+          "value": "node_modules/@esbuild/darwin-arm64"
         },
         {
           "name": "cdx:npm:package:development",
@@ -31690,7 +31711,7 @@
       "type": "library",
       "name": "strip-ansi",
       "version": "6.0.1",
-      "bom-ref": "BomRef.prbvpg1hk48.hmga0hqr8o",
+      "bom-ref": "BomRef.92shb7dd4s.2ao42dalf1o",
       "author": "Sindre Sorhus",
       "description": "Strip ANSI escape codes from a string",
       "licenses": [
@@ -68672,7 +68693,7 @@
   ],
   "dependencies": [
     {
-      "ref": "api-whisperer@0.0.0",
+      "ref": "api-whisperer@1.2.0",
       "dependsOn": [
         "@angular-devkit/build-angular@18.2.18",
         "@angular/animations@18.2.13",
@@ -68705,6 +68726,7 @@
         "ngx-bootstrap@19.0.2",
         "ngx-markdown@19.1.1",
         "openapi-schema-validator@12.1.3",
+        "prismjs@1.30.0",
         "rxjs@7.8.2",
         "semver@7.7.1",
         "swagger-parser@10.0.3",
@@ -68918,6 +68940,7 @@
       "dependsOn": [
         "anymatch@3.1.3",
         "braces@3.0.3",
+        "fsevents@2.3.3",
         "webpack-dev-server@5.0.4|glob-parent@5.1.2",
         "is-binary-path@2.1.0",
         "is-glob@4.0.3",
@@ -69447,6 +69470,7 @@
       "dependsOn": [
         "@types/node@22.14.1",
         "vite@5.4.18|esbuild@0.21.5",
+        "fsevents@2.3.3",
         "less@4.2.0",
         "vite@5.4.18|postcss@8.5.3",
         "rollup@4.22.4",
@@ -69457,11 +69481,11 @@
     {
       "ref": "vite@5.4.18|esbuild@0.21.5",
       "dependsOn": [
-        "vite@5.4.18|@esbuild/linux-x64@0.21.5"
+        "vite@5.4.18|@esbuild/darwin-arm64@0.21.5"
       ]
     },
     {
-      "ref": "vite@5.4.18|@esbuild/linux-x64@0.21.5"
+      "ref": "vite@5.4.18|@esbuild/darwin-arm64@0.21.5"
     },
     {
       "ref": "vite@5.4.18|postcss@8.5.3",
@@ -69495,7 +69519,7 @@
     {
       "ref": "esbuild@0.23.0",
       "dependsOn": [
-        "@esbuild/linux-x64@0.23.0"
+        "@esbuild/darwin-arm64@0.23.0"
       ]
     },
     {
@@ -69589,7 +69613,7 @@
     {
       "ref": "lmdb@3.0.13",
       "dependsOn": [
-        "@lmdb/lmdb-linux-x64@3.0.13",
+        "@lmdb/lmdb-darwin-arm64@3.0.13",
         "msgpackr@1.11.2",
         "node-addon-api@6.1.0",
         "node-gyp-build-optional-packages@5.2.2",
@@ -69598,7 +69622,7 @@
       ]
     },
     {
-      "ref": "@lmdb/lmdb-linux-x64@3.0.13"
+      "ref": "@lmdb/lmdb-darwin-arm64@3.0.13"
     },
     {
       "ref": "msgpackr@1.11.2",
@@ -69609,12 +69633,12 @@
     {
       "ref": "msgpackr-extract@3.0.3",
       "dependsOn": [
-        "@msgpackr-extract/msgpackr-extract-linux-x64@3.0.3",
+        "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3",
         "node-gyp-build-optional-packages@5.2.2"
       ]
     },
     {
-      "ref": "@msgpackr-extract/msgpackr-extract-linux-x64@3.0.3"
+      "ref": "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3"
     },
     {
       "ref": "node-gyp-build-optional-packages@5.2.2",
@@ -69668,19 +69692,19 @@
     {
       "ref": "rollup@4.22.4",
       "dependsOn": [
-        "@rollup/rollup-linux-x64-gnu@4.22.4",
-        "@rollup/rollup-linux-x64-musl@4.22.4",
-        "@types/estree@1.0.5"
+        "@rollup/rollup-darwin-arm64@4.22.4",
+        "@types/estree@1.0.5",
+        "fsevents@2.3.3"
       ]
     },
     {
-      "ref": "@rollup/rollup-linux-x64-gnu@4.22.4"
-    },
-    {
-      "ref": "@rollup/rollup-linux-x64-musl@4.22.4"
+      "ref": "@rollup/rollup-darwin-arm64@4.22.4"
     },
     {
       "ref": "@types/estree@1.0.5"
+    },
+    {
+      "ref": "fsevents@2.3.3"
     },
     {
       "ref": "sass@1.77.6",
@@ -69695,6 +69719,7 @@
       "dependsOn": [
         "anymatch@3.1.3",
         "braces@3.0.3",
+        "fsevents@2.3.3",
         "sass@1.77.6|glob-parent@5.1.2",
         "is-binary-path@2.1.0",
         "is-glob@4.0.3",
@@ -70944,7 +70969,7 @@
       "ref": "esbuild-wasm@0.23.0"
     },
     {
-      "ref": "@esbuild/linux-x64@0.23.0"
+      "ref": "@esbuild/darwin-arm64@0.23.0"
     },
     {
       "ref": "@nodelib/fs.scandir@2.1.5",
@@ -71077,6 +71102,7 @@
       "dependsOn": [
         "anymatch@3.1.3",
         "braces@3.0.3",
+        "fsevents@2.3.3",
         "karma@6.4.4|glob-parent@5.1.2",
         "is-binary-path@2.1.0",
         "is-glob@4.0.3",
@@ -72225,7 +72251,7 @@
       "dependsOn": [
         "string-width@4.2.3",
         "@isaacs/cliui@8.0.2|string-width@5.1.2",
-        "BomRef.prbvpg1hk48.hmga0hqr8o",
+        "BomRef.92shb7dd4s.2ao42dalf1o",
         "@isaacs/cliui@8.0.2|strip-ansi@7.1.0",
         "wrap-ansi@7.0.0",
         "@isaacs/cliui@8.0.2|wrap-ansi@8.1.0"
@@ -72280,7 +72306,7 @@
       "ref": "eastasianwidth@0.2.0"
     },
     {
-      "ref": "BomRef.prbvpg1hk48.hmga0hqr8o",
+      "ref": "BomRef.92shb7dd4s.2ao42dalf1o",
       "dependsOn": [
         "ansi-regex@5.0.1"
       ]
