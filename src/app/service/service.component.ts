@@ -17,13 +17,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Parser } from 'marked';
 
 @Component({
-    selector: 'app-openapi',
+    selector: 'app-service',
     standalone: true,
-    templateUrl: './openapi.component.html',
-    styleUrls: ['./openapi.component.scss'],
+    templateUrl: './service.component.html',
+    styleUrls: ['./service.component.scss'],
     imports: [YamlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule]
 })
-export class OpenapiComponent implements OnInit {
+export class ServiceComponent implements OnInit {
 
   @ViewChild(YamlEditorComponent) yamlEditor!: YamlEditorComponent
 
