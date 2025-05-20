@@ -19,16 +19,23 @@
         <div *ngIf="activeService !== null" class="row">
           <div class="col mb-5 d-flex justify-content-between align-items-center">
             <h3 [id]="escapeId(activeService.name)">{{activeService.name}}</h3>
-            <div class="btn-group" dropdown>
-              <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle"
-                      aria-controls="dropdown-basic">{{activeServiceContent?.displayVersion}}<span class="caret"></span>
-              </button>
-              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                  role="menu" aria-labelledby="button-basic">
-                @for (serviceContent of sortServiceContent(activeService.content) ; track serviceContent.version) {
-                  <li (click)="onDropdownChange(serviceContent)" [attr.data-version-raw-id]="serviceContent.version" role="menuitem"><a class="dropdown-item" href="#">{{serviceContent.displayVersion}}</a></li>
+            <div class="d-flex align-items-center">
+              <div *ngIf="activeService?.tags != null" class="d-flex me-3 gap-2">
+                @for (tag of activeService.tags ; track activeService.tags) {
+                  <span class="badge text-bg-light fs-6 py-2 px-3">{{tag}}</span>
                 }
-              </ul>
+              </div>
+              <div class="btn-group" dropdown>
+                <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle"
+                        aria-controls="dropdown-basic">{{activeServiceContent?.displayVersion}}<span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  @for (serviceContent of sortServiceContent(activeService.content) ; track serviceContent.version) {
+                    <li (click)="onDropdownChange(serviceContent)" [attr.data-version-raw-id]="serviceContent.version" role="menuitem"><a class="dropdown-item" href="#">{{serviceContent.displayVersion}}</a></li>
+                  }
+                </ul>
+              </div>
             </div>
           </div>
         </div>

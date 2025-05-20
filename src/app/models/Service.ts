@@ -6,6 +6,7 @@ export interface Service {
   type?: 'service' | 'library' | 'cli' | 'ui-component';
   programmingLanguages?: string[];
   technologies?: string[];
+  deployment?: string;
   status?: 'active' | 'deprecated' | 'development' | 'planned';
   owner?: string;
   contact?: string;
