@@ -34,17 +34,17 @@
         </div>
         <div *ngIf="activeService !== null" class="row">
           <tabset [justified]="true">
-            <tab heading="Swagger UI">
+            <tab *ngIf="activeServiceContent?.openAPI != null" heading="Swagger UI">
               <div class="col border-start border-end">
                 <app-openapi-swagger-ui [openAPI]="activeServiceContent?.openAPI"></app-openapi-swagger-ui>
               </div>
             </tab>
-            <tab heading="OpenAPI" (selectTab)="onSelect($event)">
+            <tab *ngIf="activeServiceContent?.openAPI != null" heading="OpenAPI" (selectTab)="onSelect($event)">
               <div class="col border-start border-end">
                 <app-openapi-yaml-editor [openAPI]="activeServiceContent?.openAPI"></app-openapi-yaml-editor>
               </div>
             </tab>
-            <tab heading="Description">
+            <tab *ngIf="activeServiceContent?.description != null" heading="Description">
               <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
                 <markdown [disableSanitizer]="true" [src]="activeServiceContent?.description"></markdown>
               </div>
