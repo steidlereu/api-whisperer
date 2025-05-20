@@ -14,36 +14,40 @@
 
 <hr>
 
-## Features
+## ✨ Key Features
 
-- Centralized API documentation and developer tools
-- Perfectly optimized for APIs based on domain-driven-design
-- Perfectly optimized for CI/CD driven documentation
-- Single-Page application based on [Angular](https://angular.dev/)
-- Customizable content, themes and styles
-- Webhosting or Dockerized deployment for easy hosting
+- ⚡ **Fast & Easy to Use** – Powered by [Angular](https://angular.dev/).
+- 🛠️ **Software-as-Code** – Configure your portal using JSON and static files.
+- 🧩 **Domain-Driven Design** – Optimized for APIs with DDD structure.
+- 🎨 **Fully Customizable** – Themes, styles & content via Markdown and config.
+- 🚀 **Quick Deployment** – Run on any static host or with Docker.
 
-## Demo
+## Live Demo
 
-See the [Coffe & Fruits Store Demo Website](https://demo.api-whisperer.io).
+🔗 [**Coffee & Fruits Store Demo**](https://demo.api-whisperer.io)
 
-Try out local with [Docker Compose](https://docs.docker.com/compose/) by runnung:
+Try out local with [Docker Compose](https://docs.docker.com/compose/) by running:
 
-  ```shell
+  ```bash
   docker compose -f demo.docker-compose.yml up --build --force-recreate
   ```
 
 ## Documentation
 
-See the [API Whisperer Documentation](https://api-whisperer.io).
+🔗 See the [API Whisperer Documentation](https://api-whisperer.io).
 
-## Getting started
+## Get Started
 
-Create a new application by running:
+### 1. Scaffold your portal
+```bash
+npx create-api-whisperer my-developer-portal
+```
 
-  ```shell
-  npx create-api-whisperer my-developer-portal
-  ```
+### 2. Add your configuration
+Create a `config.json` and place it in `/app/assets`.
+
+### 3. Add your content
+Put your Markdown pages, OpenAPI specs and images inside `/app/assets/content`.
 
   For more details refer to the [API Whisperer Documentation](https://api-whisperer.io).
 
@@ -65,7 +69,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## For Contributors
 
-Please [submit an Issue](https://github.com/steidlereu/api-whisperer/issues).
+We welcome contributions! If you want to improve features, add integrations, or enhance docs, please [submit an Issue](https://github.com/steidlereu/api-whisperer/issues).
+
+## Community & Support
+
+- Website: [api-whisperer.io](https://api-whisperer.io)
+- Issues: [GitHub Issues](https://github.com/steidlereu/api-whisperer/issues)
+- Contact: info@steidler.eu
 
 ## 📄 License
 
