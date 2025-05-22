@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Service } from '../../models/Service';
+import { CommonModule, NgIf } from "@angular/common";
 
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, NgIf],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss'
 })
