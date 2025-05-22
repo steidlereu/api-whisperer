@@ -15,13 +15,14 @@ import { Content } from '../models/Content';
 import * as semver from 'semver';
 import { ActivatedRoute } from '@angular/router';
 import { Parser } from 'marked';
+import { OverviewComponent } from "./overview/overview.component";
 
 @Component({
     selector: 'app-service',
     standalone: true,
     templateUrl: './service.component.html',
     styleUrls: ['./service.component.scss'],
-    imports: [YamlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule]
+    imports: [YamlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule, OverviewComponent]
 })
 export class ServiceComponent implements OnInit {
 

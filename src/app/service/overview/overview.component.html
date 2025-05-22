@@ -1,1 +1,9 @@
-<p>overview works!</p>
+<p>
+  <strong>Name</strong><br>
+  {{ service?.name }}
+  <br><br>
+  <ng-template *ngif="service?.summary">
+    <strong>Description</strong><br>
+    {{ service?.summary }}
+  </ng-template>
+</p>

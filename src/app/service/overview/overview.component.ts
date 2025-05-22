@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Service } from '../../models/Service';
 
 @Component({
   selector: 'app-overview',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
+
+  @Input({ required: true }) service!: Service | undefined;
 
 }

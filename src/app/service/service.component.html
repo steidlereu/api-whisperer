@@ -25,6 +25,12 @@
                   <span class="badge text-bg-light fs-6 py-2 px-3">{{tag}}</span>
                 }
               </div>
+              <div *ngIf="activeService?.status != null" class="d-flex me-3 gap-2">
+                <span *ngIf="activeService?.status == 'active'" class="badge text-bg-success fs-6 py-2 px-3">{{activeService?.status}}</span>
+                <span *ngIf="activeService?.status == 'development'" class="badge text-bg-warning fs-6 py-2 px-3">{{activeService?.status}}</span>
+                <span *ngIf="activeService?.status == 'planned'" class="badge text-bg-info fs-6 py-2 px-3">{{activeService?.status}}</span>
+                <span *ngIf="activeService?.status == 'deprecated'" class="badge text-bg-danger fs-6 py-2 px-3">{{activeService?.status}}</span>
+              </div>
               <div class="btn-group" dropdown>
                 <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle"
                         aria-controls="dropdown-basic">{{activeServiceContent?.displayVersion}}<span class="caret"></span>
@@ -40,7 +46,29 @@
           </div>
         </div>
         <div *ngIf="activeService !== null" class="row">
-          <tabset [justified]="true">
+          <tabset *ngIf="activeService?.overview == true" [justified]="true">
+            <tab heading="Overview">
+              <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
+                <app-overview [service]="activeService"></app-overview>
+              </div>
+            </tab>
+            <tab *ngIf="activeServiceContent?.openAPI != null" heading="Swagger UI">
+              <div class="col border-start border-end">
+                <app-openapi-swagger-ui [openAPI]="activeServiceContent?.openAPI"></app-openapi-swagger-ui>
+              </div>
+            </tab>
+            <tab *ngIf="activeServiceContent?.openAPI != null" heading="OpenAPI" (selectTab)="onSelect($event)">
+              <div class="col border-start border-end">
+                <app-openapi-yaml-editor [openAPI]="activeServiceContent?.openAPI"></app-openapi-yaml-editor>
+              </div>
+            </tab>
+            <tab *ngIf="activeServiceContent?.description != null" heading="Description">
+              <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
+                <markdown [disableSanitizer]="true" [src]="activeServiceContent?.description"></markdown>
+              </div>
+            </tab>
+          </tabset>
+          <tabset *ngIf="activeService?.overview !== true" [justified]="true">
             <tab *ngIf="activeServiceContent?.openAPI != null" heading="Swagger UI">
               <div class="col border-start border-end">
                 <app-openapi-swagger-ui [openAPI]="activeServiceContent?.openAPI"></app-openapi-swagger-ui>
