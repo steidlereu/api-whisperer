@@ -1,12 +1,11 @@
 <div class="m-5">
-  <div class="col-md-12 mb-5">
-    <div *ngIf="service?.tags != null" class="d-flex me-3 gap-2">
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngIf="service?.tags != null" class="d-flex me-3 gap-2 mb-5">
       @for (tag of service?.tags ; track tag) {
         <span class="badge text-bg-light fs-6 py-2 px-3">{{tag}}</span>
       }
     </div>
-  </div>
-  <div class="col-md-6">
     <p>
       <strong>Name</strong><br>
       {{ service?.name }}
@@ -16,8 +15,31 @@
         {{ service?.summary }}
       </ng-template>
     </p>
+    <div class="d-flex me-3 gap-2 mt-5">
+      <span class="badge bg-primary fs-6 py-2 px-3">
+        <i class="fab fa-swift"></i> Swift
+      </span>
+      <span class="badge bg-primary fs-6 py-2 px-3">
+        <i class="fab fa-js"></i> Javascript
+      </span>
+      <span class="badge bg-primary fs-6 py-2 px-3">
+        <i class="fab fa-java"></i> Java
+      </span>
+      <span class="badge bg-primary fs-6 py-2 px-3">
+        <i class="fab fa-python"></i> Python
+      </span>
+      <span class="badge bg-primary fs-6 py-2 px-3">
+        <i class="fa fa-code"></i> Python
+      </span>
+    </div>
   </div>
   <div class="col-md-6">
-
+    <div *ngIf="service?.type" class="text-end">
+      <img *ngIf="service?.type === 'service'" style="max-width: 150px;" src="/assets/icons/service_icon_colored.png" alt="service" />
+      <img *ngIf="service?.type === 'cli'" style="max-width: 150px;" src="/assets/icons/cli_icon_colored_2.png" alt="service" />
+      <img *ngIf="service?.type === 'library'" style="max-width: 150px;" src="/assets/icons/package_icon_colored.png" alt="service" />
+      <img *ngIf="service?.type === 'ui-component'" style="max-width: 150px;" src="/assets/icons/component_icon_colored.png" alt="service" />
+    </div>
+  </div>
   </div>
 </div>
