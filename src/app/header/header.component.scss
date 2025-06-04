@@ -9,3 +9,11 @@
     z-index: 1000;
     border-bottom: 5px solid var(--custom-primary) !important;
 }
+
+::ng-deep #navbarNav .nav-item .nav-link.active {
+  color: var(--custom-primary);
+}
+
+::ng-deep #navbarNav .nav-item .nav-link {
+  color: var(--bs-body-color);
+}

@@ -41,7 +41,7 @@
           </div>
         </div>
         <div *ngIf="activeService !== null" class="row">
-          <tabset *ngIf="activeService?.overview == true" [justified]="true">
+          <tabset class="service-tabs" *ngIf="activeService?.overview == true" [justified]="true">
             <tab heading="Overview">
               <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
                 <app-overview [service]="activeService"></app-overview>

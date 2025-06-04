@@ -57,7 +57,7 @@ $theme-dark-colors: (
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 [data-bs-theme=light] {
-  --bs-body-color: $custom-secondary;
+  --bs-body-color: #{$custom-body-color-light};
 
   .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
     color: $custom-primary
@@ -65,7 +65,8 @@ $theme-dark-colors: (
 }
 
 [data-bs-theme=dark] {
-  --bs-body-color: white;
+  --bs-body-color: #{$custom-body-color-dark};
+  --bs-nav-link-color: $custom-primary;
 
   a {
     color: $custom-primary;
@@ -80,7 +81,7 @@ $theme-dark-colors: (
   }
 
   .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    color: $custom-primary
+    color: $custom-primary;
   }
 }
 
