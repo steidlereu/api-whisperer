@@ -15,22 +15,10 @@
         {{ service?.summary }}
       </ng-template>
     </p>
-    <div class="d-flex me-3 gap-2 mt-5">
-      <span class="badge bg-primary fs-6 py-2 px-3">
-        <i class="fab fa-swift"></i> Swift
-      </span>
-      <span class="badge bg-primary fs-6 py-2 px-3">
-        <i class="fab fa-js"></i> Javascript
-      </span>
-      <span class="badge bg-primary fs-6 py-2 px-3">
-        <i class="fab fa-java"></i> Java
-      </span>
-      <span class="badge bg-primary fs-6 py-2 px-3">
-        <i class="fab fa-python"></i> Python
-      </span>
-      <span class="badge bg-primary fs-6 py-2 px-3">
-        <i class="fa fa-code"></i> Python
-      </span>
+    <div *ngIf="service?.programmingLanguages != null" class="d-flex me-3 gap-2 mb-5">
+      @for (language of service?.programmingLanguages ; track language) {
+        <span class="badge bg-primary fs-6 py-2 px-3"><i [class]="getLanguageIcon(language)"></i> {{language}}</span>
+      }
     </div>
   </div>
   <div class="col-md-6">
