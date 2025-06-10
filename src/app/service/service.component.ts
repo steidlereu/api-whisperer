@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { YamlEditorComponent } from "./yaml-editor/yaml-editor.component";
+import { XmlEditorComponent } from "./xml-editor/xml-editor.component";
 import { WorkspaceComponent } from "./workspace/workspace.component";
 import { SwaggerUiComponent } from './swagger-ui/swagger-ui.component';
 import {NgIf} from "@angular/common";
@@ -22,7 +23,7 @@ import { OverviewComponent } from "./overview/overview.component";
     standalone: true,
     templateUrl: './service.component.html',
     styleUrls: ['./service.component.scss'],
-    imports: [YamlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule, OverviewComponent]
+    imports: [YamlEditorComponent, XmlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule, OverviewComponent]
 })
 export class ServiceComponent implements OnInit {
 

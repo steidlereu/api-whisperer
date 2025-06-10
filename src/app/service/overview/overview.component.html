@@ -22,7 +22,7 @@
       <ng-template [ngIf]="service?.contact">
         <br><br>
         <strong>Contact</strong><br>
-        {{ service?.contact }}
+        <span [innerHTML]="transformContact(service?.contact || '')"></span>
       </ng-template>
       <ng-template [ngIf]="service?.repository">
         <br><br>

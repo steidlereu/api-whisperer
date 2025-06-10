@@ -74,4 +74,14 @@ export class OverviewComponent {
     return this.techIconMap[key] || 'fas fa-cube';
   }
 
+  transformContact(contact: string): string {
+    const match = contact.match(/^(.*)\s<(.+)>$/);
+    if (!match) return contact;
+
+    const name = match[1];
+    const email = match[2];
+
+    return `<a href="mailto:${email}"><i class="fas fa-address-book"></i> ${name}</a>`;
+  }
+
 }

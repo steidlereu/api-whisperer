@@ -57,6 +57,11 @@
                 <app-openapi-yaml-editor [openAPI]="activeServiceContent?.openAPI"></app-openapi-yaml-editor>
               </div>
             </tab>
+            <tab *ngIf="activeServiceContent?.soap != null" heading="SOAP" (selectTab)="onSelect($event)">
+              <div class="col border-start border-end">
+                <app-xml-editor [xml]="activeServiceContent?.soap"></app-xml-editor>
+              </div>
+            </tab>
             <tab *ngIf="activeServiceContent?.description != null" heading="Description">
               <div class="border-start border-end p-5" style="padding: 0 20px;">
                 <markdown [disableSanitizer]="true" [src]="activeServiceContent?.description"></markdown>
