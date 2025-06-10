@@ -14,10 +14,28 @@
         <strong>Summary</strong><br>
         {{ service?.summary }}
       </ng-template>
+      <ng-template [ngIf]="service?.deployment">
+        <br><br>
+        <strong>Deployment</strong><br>
+        {{ service?.deployment }}
+      </ng-template>
+      <ng-template [ngIf]="service?.contact">
+        <br><br>
+        <strong>Contact</strong><br>
+        {{ service?.contact }}
+      </ng-template>
+      <ng-template [ngIf]="service?.repository">
+        <br><br>
+        <strong>Repository</strong><br>
+        <a href="{{ service?.repository }}"><i class="fab fa-git-alt"></i> {{ service?.repository }}</a>
+      </ng-template>
     </p>
     <div *ngIf="service?.programmingLanguages != null" class="d-flex me-3 gap-2 mb-5">
       @for (language of service?.programmingLanguages ; track language) {
         <span class="badge bg-primary fs-6 py-2 px-3"><i [class]="getLanguageIcon(language)"></i> {{language}}</span>
+      }
+      @for (tech of service?.technologies ; track tech) {
+        <span class="badge bg-primary fs-6 py-2 px-3"><i [class]="getTechnologyIcon(tech)"></i> {{tech}}</span>
       }
     </div>
   </div>

@@ -65,8 +65,13 @@ export class OverviewComponent {
   };
 
   getLanguageIcon(language: string): string {
-    const key = language?.toLowerCase().trim();
+    const key = language?.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
     return this.techIconMap[key] || 'fas fa-code';
+  }
+
+  getTechnologyIcon(technology: string): string {
+    const key = technology?.toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+    return this.techIconMap[key] || 'fas fa-cube';
   }
 
 }

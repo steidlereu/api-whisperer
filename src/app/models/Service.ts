@@ -9,7 +9,6 @@ export interface Service {
   technologies?: string[];
   deployment?: string;
   status?: 'active' | 'deprecated' | 'development' | 'planned';
-  owner?: string;
   contact?: string;
   repository?: string;
   tags?: string[];
