@@ -57,6 +57,16 @@
                 <app-openapi-yaml-editor [openAPI]="activeServiceContent?.openAPI"></app-openapi-yaml-editor>
               </div>
             </tab>
+            <tab *ngIf="activeServiceContent?.asyncAPI != null" heading="Async UI" (selectTab)="onSelect($event)">
+              <div class="col border-start border-end">
+                <app-asyncapi-ui [asyncAPI]="activeServiceContent?.asyncAPI"></app-asyncapi-ui>
+              </div>
+            </tab>
+            <tab *ngIf="activeServiceContent?.asyncAPI != null" heading="AsyncAPI" (selectTab)="onSelect($event)">
+              <div class="col border-start border-end">
+                <app-openapi-yaml-editor [openAPI]="activeServiceContent?.asyncAPI"></app-openapi-yaml-editor>
+              </div>
+            </tab>
             <tab *ngIf="activeServiceContent?.soap != null" heading="SOAP" (selectTab)="onSelect($event)">
               <div class="col border-start border-end">
                 <app-xml-editor [xml]="activeServiceContent?.soap"></app-xml-editor>

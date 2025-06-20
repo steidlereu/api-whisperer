@@ -17,13 +17,14 @@ import * as semver from 'semver';
 import { ActivatedRoute } from '@angular/router';
 import { Parser } from 'marked';
 import { OverviewComponent } from "./overview/overview.component";
+import { AsyncapiUiComponent } from "./asyncapi-ui/asyncapi-ui.component";
 
 @Component({
     selector: 'app-service',
     standalone: true,
     templateUrl: './service.component.html',
     styleUrls: ['./service.component.scss'],
-    imports: [YamlEditorComponent, XmlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule, OverviewComponent]
+    imports: [YamlEditorComponent, XmlEditorComponent, WorkspaceComponent, SwaggerUiComponent, NgIf, TabsModule, MarkdownComponent, BsDropdownModule, OverviewComponent, AsyncapiUiComponent]
 })
 export class ServiceComponent implements OnInit {
 
