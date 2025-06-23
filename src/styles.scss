@@ -57,6 +57,7 @@ $theme-dark-colors: (
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
 [data-bs-theme=light] {
+  --custom-color-light: #{$custom-body-color-light};
   --bs-body-color: #{$custom-body-color-light};
 
   .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
@@ -65,6 +66,7 @@ $theme-dark-colors: (
 }
 
 [data-bs-theme=dark] {
+  --custom-color-light: #{$custom-body-color-light};
   --bs-body-color: #{$custom-body-color-dark};
   --bs-nav-link-color: $custom-primary;
 

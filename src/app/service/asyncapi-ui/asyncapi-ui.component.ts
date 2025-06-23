@@ -14,8 +14,6 @@ export class AsyncapiUiComponent implements OnDestroy, AfterViewInit {
   @Input({ required: true }) asyncAPI!: string | undefined;
 
   config = {"show": {"info": false}};
-  //schema = 'http://localhost:4200/assets/coffee-fruits-demo/content/order-queue-management-asyncapi.yaml';
-  css = '/assets/default.min.css';
   options = {"method":"GET","mode":"cors"}
 
   constructor(private element: ElementRef) {}

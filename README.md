@@ -21,6 +21,7 @@
 - 🧩 **Domain-Driven Design** – Optimized for APIs with DDD structure.
 - 🎨 **Fully Customizable** – Themes, styles & content via Markdown and config.
 - 🚀 **Quick Deployment** – Run on any static host or with Docker.
+- 🌐 **Broad Interface Support** – Works with OpenAPI, SOAP, and AsyncAPI.
 
 ## Live Demo
 
