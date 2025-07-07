@@ -8,7 +8,7 @@ export interface Service {
   programmingLanguages?: string[];
   technologies?: string[];
   deployment?: string;
-  status?: 'active' | 'deprecated' | 'development' | 'planned';
+  status?: 'stable' | 'deprecated' | 'development' | 'planned';
   contact?: string;
   repository?: string;
   tags?: string[];

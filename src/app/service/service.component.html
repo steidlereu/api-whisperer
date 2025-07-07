@@ -21,7 +21,7 @@
             <h3 [id]="escapeId(activeService.name)">{{activeService.name}}</h3>
             <div class="d-flex align-items-center">
               <div *ngIf="activeService?.status != null" class="d-flex me-3 gap-2">
-                <span *ngIf="activeService?.status == 'active'" class="badge text-bg-success fs-6 py-2 px-3">{{activeService?.status}}</span>
+                <span *ngIf="activeService?.status == 'stable'" class="badge text-bg-success fs-6 py-2 px-3">{{activeService?.status}}</span>
                 <span *ngIf="activeService?.status == 'development'" class="badge text-bg-warning fs-6 py-2 px-3">{{activeService?.status}}</span>
                 <span *ngIf="activeService?.status == 'planned'" class="badge text-bg-info fs-6 py-2 px-3">{{activeService?.status}}</span>
                 <span *ngIf="activeService?.status == 'deprecated'" class="badge text-bg-danger fs-6 py-2 px-3">{{activeService?.status}}</span>

@@ -5,11 +5,12 @@ import {CollapseModule} from "ngx-bootstrap/collapse";
 import {CollectionComponent} from "./collection/collection.component";
 import {Product} from "../../models/Product";
 import {ExplorerElement} from "../../models/ExplorerElement";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-openapi-workspace',
   standalone: true,
-  imports: [TooltipModule, CollapseModule, CollectionComponent],
+  imports: [TooltipModule, CollapseModule, CollectionComponent, RouterLink, RouterLinkActive],
   templateUrl: './workspace.component.html',
   styleUrl: './workspace.component.scss'
 })
@@ -17,7 +18,6 @@ export class WorkspaceComponent implements AfterViewInit {
 
   @ViewChildren(CollectionComponent) children!: QueryList<CollectionComponent>;
 
-  //explorer: Explorer;
   products: Product[] | [] | undefined;
 
   constructor(
