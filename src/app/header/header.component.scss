@@ -17,3 +17,17 @@
 ::ng-deep #navbarNav .nav-item .nav-link {
   color: var(--bs-body-color);
 }
+
+@media (max-width: 768px) {
+
+  .navbar-brand {
+    font-size: calc(var(--bs-navbar-brand-font-size) * 0.8);
+    max-width: 220px;
+    overflow-wrap: normal;
+    white-space: normal;
+    text-overflow: unset;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+  }
+}

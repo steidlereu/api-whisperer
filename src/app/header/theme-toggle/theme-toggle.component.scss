@@ -36,14 +36,21 @@
     .checkbox:checked + .label .ball {
         transform: translateX(20px);
     }
-    
+
     .fa-moon {
         /* color: #f1c40f; */
         color: #cdcac1;
     }
-    
+
     .fa-sun {
         color: #f39c12;
     }
 
+}
+
+@media (max-width: 768px) {
+  .themeToggle {
+    margin-left: 5px;
+    margin-bottom: 10px;
+  }
 }
