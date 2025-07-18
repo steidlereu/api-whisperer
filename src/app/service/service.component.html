@@ -17,7 +17,7 @@
           </div>
         </div>
         <div *ngIf="activeService !== null" class="row">
-          <div class="col mb-5 d-flex justify-content-between align-items-center">
+          <div class="col mb-5 d-flex justify-content-between align-items-center mobile-flex-column">
             <h3 [id]="escapeId(activeService.name)">{{activeService.name}}</h3>
             <div class="d-flex align-items-center">
               <div *ngIf="activeService?.status != null" class="d-flex me-3 gap-2">
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div *ngIf="activeService !== null" class="row">
-          <tabset class="service-tabs" *ngIf="activeService?.overview == true" [justified]="true">
+          <tabset class="service-tabs mobile-tabset" *ngIf="activeService?.overview == true" [justified]="true">
             <tab heading="Overview">
               <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
                 <app-overview [service]="activeService"></app-overview>

@@ -13,3 +13,36 @@
 ::ng-deep tabset .nav-tabs .nav-link {
   color: var(--bs-body-color);
 }
+
+@media (max-width: 768px) {
+
+  .border-start {
+    border-left: none !important;
+  }
+
+  .mobile-flex-column {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem;
+  }
+
+  ::ng-deep .mobile-tabset .nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: none;
+    gap: 0.5rem;
+    justify-content: stretch;
+  }
+
+ ::ng-deep .mobile-tabset .nav-tabs .nav-link {
+    border-radius: 0.375rem;
+    border: 1px solid var(--bs-primary);
+    background: var(--bs-white);
+    color: var(--bs-primary);
+    margin-bottom: 0;
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+  }
+}
