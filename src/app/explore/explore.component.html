@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col d-none d-sm-block">
           <table class="table table-hover">
             <thead>
               <tr>
@@ -49,6 +49,44 @@
                     }
                   </td>
                   <td>{{ sortServiceContent(item.service.content)[0].displayVersion }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <div class="col d-block d-sm-none">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Service</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of flatCatalog; track item.service.name) {
+                <tr routerLink="/explore/{{ item.product.name }}/{{ item.domain.name }}/{{ item.service.name }}" style="cursor: pointer;">
+                  <th scope="row">{{ item.count }}</th>
+                  <td>
+                    <p><b>{{ item.service.name }}</b> > {{ item.product.name }} > {{ item.domain.name }}</p>
+                    <p>
+                      @for (tag of item.service.tags ; track tag) {
+                        <span class="badge badge-tag">{{tag}}</span>&nbsp;
+                      }
+                    </p>
+                    <p>
+                      @if (item.service.status === 'stable') {
+                        <span class="badge text-bg-success">{{ item.service.status }}</span>&nbsp;<span class="badge text-bg-light">{{ sortServiceContent(item.service.content)[0].displayVersion }}</span>
+                      } @else if (item.service.status === 'development') {
+                        <span class="badge text-bg-warning">{{ item.service.status }}</span>&nbsp;<span class="badge text-bg-light">{{ sortServiceContent(item.service.content)[0].displayVersion }}</span>
+                      } @else if (item.service.status === 'planned') {
+                        <span class="badge text-bg-info">{{ item.service.status }}</span>&nbsp;<span class="badge text-bg-light">{{ sortServiceContent(item.service.content)[0].displayVersion }}</span>
+                      } @else if (item.service.status === 'deprecated') {
+                        <span class="badge text-bg-danger">{{ item.service.status }}</span>&nbsp;<span class="badge text-bg-light">{{ sortServiceContent(item.service.content)[0].displayVersion }}</span>
+                      } @else {
+                        <span class="badge text-bg-light">unknown</span>&nbsp;<span class="badge text-bg-light">{{ sortServiceContent(item.service.content)[0].displayVersion }}</span>
+                      }
+                    </p>
+                  </td>
                 </tr>
               }
             </tbody>
