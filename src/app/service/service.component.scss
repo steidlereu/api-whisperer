@@ -37,12 +37,27 @@
  ::ng-deep .mobile-tabset .nav-tabs .nav-link {
     border-radius: 0.375rem;
     border: 1px solid var(--bs-primary);
-    background: var(--bs-white);
     color: var(--bs-primary);
     margin-bottom: 0;
     flex: 1 1 100%;
     text-align: center;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     font-weight: 500;
+    white-space: nowrap;
+    max-width: 110px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &.active {
+      color: var(--bs-white);
+      background-color: var(--bs-primary);
+      border-color: var(--bs-primary);
+    }
+  }
+
+  ::ng-deep .mobile-tabset .mobile-tabset-content {
+    border: none !important;
+    //border-radius: 0.375rem;
   }
 }

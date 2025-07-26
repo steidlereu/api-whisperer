@@ -43,54 +43,54 @@
         <div *ngIf="activeService !== null" class="row">
           <tabset class="service-tabs mobile-tabset" *ngIf="activeService?.overview == true" [justified]="true">
             <tab heading="Overview">
-              <div class="border-start border-end pt-5 pb-5" style="padding: 0 20px;">
+              <div class="col border-start border-end shadow mb-5 mb-sm-0 mt-5 mt-sm-0 pt-5 pb-5 mobile-tabset-content" style="padding: 0 20px;">
                 <app-overview [service]="activeService"></app-overview>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.openAPI != null" heading="Swagger UI">
-              <div class="col border-start border-end">
+              <div class="col border-start border-end shadow mb-5 mb-sm-0 mt-5 mt-sm-0 mobile-tabset-content">
                 <app-openapi-swagger-ui [openAPI]="activeServiceContent?.openAPI"></app-openapi-swagger-ui>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.openAPI != null" heading="OpenAPI" (selectTab)="onSelect($event)">
-              <div class="col border-start border-end">
+              <div class="col border-start border-end mobile-tabset-content">
                 <app-openapi-yaml-editor [openAPI]="activeServiceContent?.openAPI"></app-openapi-yaml-editor>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.asyncAPI != null" heading="Async UI" (selectTab)="onSelect($event)">
-              <div class="col border-start border-end">
+              <div class="col border-start border-end mobile-tabset-content">
                 <app-asyncapi-ui [asyncAPI]="activeServiceContent?.asyncAPI"></app-asyncapi-ui>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.asyncAPI != null" heading="AsyncAPI" (selectTab)="onSelect($event)">
-              <div class="col border-start border-end">
+              <div class="col border-start border-end mobile-tabset-content">
                 <app-openapi-yaml-editor [openAPI]="activeServiceContent?.asyncAPI"></app-openapi-yaml-editor>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.soap != null" heading="SOAP" (selectTab)="onSelect($event)">
-              <div class="col border-start border-end">
+              <div class="col border-start border-end mobile-tabset-content">
                 <app-xml-editor [xml]="activeServiceContent?.soap"></app-xml-editor>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.description != null" heading="Description">
-              <div class="border-start border-end p-5" style="padding: 0 20px;">
+              <div class="col border-start border-end p-5 mobile-tabset-content" style="padding: 0 20px;">
                 <markdown [disableSanitizer]="true" [src]="activeServiceContent?.description"></markdown>
               </div>
             </tab>
           </tabset>
           <tabset *ngIf="activeService?.overview !== true" [justified]="true">
             <tab *ngIf="activeServiceContent?.openAPI != null" heading="Swagger UI">
-              <div class="col border-start border-end">
+              <div class="col border-start border-end mobile-tabset-content">
                 <app-openapi-swagger-ui [openAPI]="activeServiceContent?.openAPI"></app-openapi-swagger-ui>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.openAPI != null" heading="OpenAPI" (selectTab)="onSelect($event)">
-              <div class="col border-start border-end">
+              <div class="col border-start border-end mobile-tabset-content">
                 <app-openapi-yaml-editor [openAPI]="activeServiceContent?.openAPI"></app-openapi-yaml-editor>
               </div>
             </tab>
             <tab *ngIf="activeServiceContent?.description != null" heading="Description">
-              <div class="border-start border-end p-5" style="padding: 0 20px;">
+              <div class="col border-start border-end p-5 mobile-tabset-content" style="padding: 0 20px;">
                 <markdown [disableSanitizer]="true" [src]="activeServiceContent?.description"></markdown>
               </div>
             </tab>
