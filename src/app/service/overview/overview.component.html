@@ -1,18 +1,27 @@
-<div class="m-5">
+<div class="m-0 m-sm-5">
   <div class="row">
     <div class="col-md-6">
-      <div *ngIf="service?.tags != null" class="d-flex me-3 gap-2 mb-5">
+      <div *ngIf="service?.tags != null" class="d-none d-sm-flex me-3 flex-wrap gap-2 mb-5">
       @for (tag of service?.tags ; track tag) {
         <span class="badge badge-tag fs-6 py-2 px-3">{{tag}}</span>
       }
     </div>
     <p>
-      <strong>Name</strong><br>
-      {{ service?.name }}
-      <br><br>
+      <span class="d-none d-sm-block">
+        <strong>Name</strong><br>
+        {{ service?.name }}
+        <br><br>
+      </span>
       <ng-template [ngIf]="service?.summary">
         <strong>Summary</strong><br>
         {{ service?.summary }}
+      </ng-template>
+      <ng-template [ngIf]="service?.type">
+        <br><br>
+        <span class="d-inline d-sm-none">
+          <strong>Type</strong><br>
+          {{ service?.type }}
+        </span>
       </ng-template>
       <ng-template [ngIf]="service?.deployment">
         <br><br>
@@ -30,7 +39,7 @@
         <a href="{{ service?.repository }}"><i class="fab fa-git-alt"></i> {{ service?.repository }}</a>
       </ng-template>
     </p>
-    <div *ngIf="service?.programmingLanguages != null" class="d-flex me-3 gap-2 mb-5">
+    <div *ngIf="service?.programmingLanguages != null" class="d-flex flex-wrap me-3 gap-2 mb-5">
       @for (language of service?.programmingLanguages ; track language) {
         <span class="badge bg-primary fs-6 py-2 px-3"><i [class]="getLanguageIcon(language)"></i> {{language}}</span>
       }
@@ -39,7 +48,7 @@
       }
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 d-none d-md-block">
     <div *ngIf="service?.type" class="text-end">
       <img *ngIf="service?.type === 'service'" style="max-width: 150px;" src="/assets/icons/service_icon_colored.png" alt="service" />
       <img *ngIf="service?.type === 'cli'" style="max-width: 150px;" src="/assets/icons/cli_icon_colored_2.png" alt="service" />
